@@ -1,0 +1,35 @@
+cabal-version:      3.0
+name:               oxide-website
+version:            0.1.0.0
+synopsis:           a-peirogon website built with Hakyll
+description:        Personal website for a-peirogon built with Hakyll
+license:            MIT
+license-file:       LICENSE
+build-type:         Simple
+extra-source-files: CHANGELOG.md
+
+executable site
+  main-is:          site.hs
+  hs-source-dirs:   .
+  ghc-options:      -Wall -threaded -rtsopts -with-rtsopts=-N
+  default-language: Haskell2010
+
+  build-depends:    base >=4.14 && <5
+                  , hakyll >=4.15 && <5
+                  , pandoc >=3.1 && <4
+                  , pandoc-types >=1.23 && <2
+                  , text >=1.2 && <3
+                  , time >=1.9 && <2
+                  , directory >=1.3 && <2
+                  , filepath >=1.4 && <2
+                  , containers >=0.6 && <0.7
+                  , binary >=0.8 && <0.9
+                  , process >=1.6 && <2
+                  , mtl >=2.2 && <3
+                  , bytestring >=0.10 && <0.12
+                  , network-uri >=2.6 && <3
+                  -- Dependencias adicionales recomendadas para las nuevas funcionalidades
+                  , skylighting >= 0.10 && < 0.15
+                  , hashable >= 1.3 && < 1.5
+                  , cryptohash-sha256 >= 0.11 && < 0.12
+                  , base16-bytestring >= 1.0 && < 2

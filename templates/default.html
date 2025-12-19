@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>$if(title)$$title$$else$Mi Sitio$endif$</title>
+  <meta name="description"
+        content="$if(description)$$description$$else$Sitio personal$endif$">
+  $if(author)$<meta name="author" content="$author$">$endif$
+  $if(keywords)$<meta name="keywords" content="$keywords$">$endif$
+
+  <link rel="alternate" type="application/atom+xml"
+        title="Site Feed" href="/feed.xml">
+
+  <link rel="stylesheet" href="/css/dark-mode.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="preload" href="/img/logo.svg" as="image" type="image/svg+xml">
+
+  <link rel="preload" href="/fonts/crimson/crimson-roman-webfont.woff"
+        as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/fonts/crimson/crimson-italic-webfont.woff"
+        as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/fonts/crimson/crimson-semibold-webfont.woff"
+        as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/fonts/crimson/crimson-bold-webfont.woff"
+        as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Quitamos el "if" para que si falla, lance error en consola y lo sepamos
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+        console.log("KaTeX renderizado ejecutado");
+    });
+  </script>
+  </script>
+
+  <script src="//instant.page/5.1.0" type="module"></script>
+  <script src="/js/helper.js"></script>
+</head>
+
+<body$if(bodyclass)$ class="$bodyclass$"$endif$>
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="/" id="logo" aria-label="Home">
+          <img src="/img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1); margin:10px">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="/about.html">Acerca de</a>
+          <a class="site" href="/books">Lecturas</a>
+        </nav>
+
+        $if(toc)$
+        <nav id="toc-sidebar" aria-label="Table of contents">
+          <h3>Contenido</h3>
+          $toc$
+        </nav>
+        $endif$
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        $if(title)$
+          $if(bodyclass)$
+          $else$
+          <header class="page-header">
+            <h1>$title$</h1>
+          </header>
+          $endif$
+        $endif$
+
+        $if(description)$
+        <section id="page-metadata">
+          <span class="page-description">$description$</span>
+          $if(date)$<span class="page-date">$date$</span>$endif$
+          $if(author)$<span class="page-author">by $author$</span>$endif$
+          $if(tags)$<span class="page-tags">Tags: $tags$</span>$endif$
+        </section>
+        $endif$
+
+        <section id="markdownBody">
+          $body$
+        </section>
+
+      </article>
+    </main>
+
+  </div>
+
+  <script src="/js/jquery-1.7.1.min.js"></script>
+  <script src="/js/scale.fix.js"></script>
+  <script src="/js/fix-footnotes.js"></script>
+  <script src="/js/sidenotes.js"></script>
+  <script src="/js/anchors.js"></script>
+
+</body>
+</html>

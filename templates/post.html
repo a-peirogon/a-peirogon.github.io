@@ -1,0 +1,43 @@
+<div class="post-metadata">
+    <span id="page-metadata-block">
+        <span id="page-date-range">
+            $date$
+        </span>
+        $if(tags)$
+        <span id="page-tags">
+            tags: <em>$tags$</em>
+        </span>
+        $endif$
+    </span>
+</div>
+<hr>
+$if(abstract)$
+<div class="abstract">
+    <blockquote class="page-abstract">
+        $abstract$
+    </blockquote>
+</div>
+$endif$
+
+$body$
+
+<footer>
+    <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+        <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+            <img class="fleuron-block"
+                 src="https://tony-zorman.com/images/fleuron.svg"
+                 alt="End of post fleuron"
+                 style="filter: invert(1);">
+        </span>
+    </div>
+    </footer>
+
+<script>
+if (document.querySelector("table")) {
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    // Corregida la ruta: site.hs sirve js/* en /js/, no en /assets/js/
+    js.src = "/js/tablesorter.js";
+    document.body.appendChild(js);
+}
+</script>
