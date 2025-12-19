@@ -5,3 +5,6 @@ _site
 dist-newstyle
 .direnv
 result
+site
+site.exe
+.DS_Store
