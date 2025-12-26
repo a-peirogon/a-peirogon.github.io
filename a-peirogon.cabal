@@ -1,5 +1,5 @@
 cabal-version:      3.0
-name:               a-peirogon.website
+name:               a-peirogon
 version:            0.1.0.0
 synopsis:           a-peirogon website built with Hakyll
 description:        Personal website for a-peirogon built with Hakyll
