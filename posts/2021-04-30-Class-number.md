@@ -1,5 +1,5 @@
 ---
-title: "Fórmula del número de clase"
+title: "Formula del número de clase"
 date: 2024-01-15
 tags: matemáticas
 abstract: |

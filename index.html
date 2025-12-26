@@ -1,15 +1,17 @@
-<span style="font-variant:small-caps;">This is the website</span> of **Oxide**. I write about mathematics, linguistics, computer science, etc.
+<p class="no-cap">
+<span style="font-variant:small-caps;">This is the website</span> of <strong>a-peirogon</strong>. Small corner of the internet that I've claimed for myself.
+    I write about mathematics, linguistics, computer science, and other matters of interest.
+</p>
 
-For more information about me, see [About](/about.html).
+<section class="recent-posts">
+    <h1>Recent</h1>
 
-<section markdown="1">
-
-<h1>Recent</h1>
-
-<ul>
-$for(posts)$
-  <li><a href="$url$">$title$</a> - <span class="post-date">$date$</span></li>
-$endfor$
-</ul>
-
-</section>
+    <ul class="post-list">
+    $for(posts)$
+        <li>
+            <a href="$url$">$title$</a>
+            <span class="post-date" style="font-size: 0.85em; opacity: 0.8;">— $date$</span>
+        </li>
+    $endfor$
+    </ul>
+    </section>
