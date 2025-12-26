@@ -1,6 +1,6 @@
 ---
 title: "Formula del número de clase"
-date: 2024-01-15
+date: 2025-12-15
 tags: matemáticas
 abstract: |
   <p>La factorización es una idea esencial en la teoría de números. Tras aprender los fundamentos del álgebra abstracta, uno descubre que es posible factorizar un elemento de cualquier anillo conmutativo, no solo de los enteros. Sin embargo, en un anillo arbitrario, la factorización no es necesariamente única.</p>
