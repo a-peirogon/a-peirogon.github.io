@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Formula del número de clase</title>
+  <meta name="description" content="Sitio personal">
+  
+  
+
+  <link rel="alternate" type="application/atom+xml" title="Site Feed" href="../feed.xml">
+
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/dark-mode.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/main.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/icons.css">
+
+  <link rel="preload" href="../fonts/crimson/crimson-roman-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-italic-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-semibold-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-bold-webfont.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Retiro el "if" para que si falla, lance error en consola
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: true},
+                {left: ", right: ", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+        console.log("KaTeX renderizado ejecutado");
+    });
+  </script>
+  </script>
+
+  <script src="//instant.page/5.1.0" type="module"></script>
+  <script src="../js/helper.js"></script>
+</head>
+
+<body>
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="../" id="logo" aria-label="Home">
+          <img src="../img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1); margin:10px">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="../about.html">About</a>
+          <a class="site" href="../books">Readings</a>
+        </nav>
+
+        
+        <nav id="toc-sidebar" aria-label="Table of contents">
+          <h3>Contenido</h3>
+          <div id="TOC" class="TOC"><ul>
+<li><a href="#cuerpos">Cuerpos</a></li>
+<li><a href="#funciones-l">Funciones L</a></li>
+<li><a href="#el-teorema">El teorema</a></li>
+</ul></div>
+        </nav>
+        
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        
+          
+          <header class="page-header">
+            <h1>Formula del número de clase</h1>
+          </header>
+          
+        
+
+        
+
+        <section id="markdownBody">
+          <div class="post-metadata">
+    <span id="page-metadata-block">
+        <span id="page-date-range">
+            December 15, 2025
+        </span>
+        
+        <span id="page-tags">
+            tags: <em>matemáticas</em>
+        </span>
+        
+    </span>
+</div>
+<hr>
+
+<div class="abstract">
+    <blockquote class="page-abstract">
+        <p>La factorización es una idea esencial en la teoría de números. Tras aprender los fundamentos del álgebra abstracta, uno descubre que es posible factorizar un elemento de cualquier anillo conmutativo, no solo de los enteros. Sin embargo, en un anillo arbitrario, la factorización no es necesariamente única.</p>
+    </blockquote>
+</div>
+
+
+<p>Existe un teorema que relaciona la factorización única en un anillo con el valor de una función <span class="math inline">\(\zeta\)</span>.
+También ayuda a determinar si el anillo tiene factorización única si se puede calcular el valor de dicha función <span class="math inline">\(\zeta\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Describiré los anillos, luego la función <span class="math inline">\(\zeta\)</span> y, finalmente, la conexión entre ambos.</p>
+<section id="cuerpos" class="level1">
+<h1>Cuerpos</h1>
+<p>Sea <span class="math inline">\(K = \mathbb{Q}(\sqrt{m} )\)</span> donde <span class="math inline">\(m &lt; 0\)</span> es un entero libre de cuadrados.
+Consiste en números de la forma <span class="math inline">\(a+b\sqrt{m}\)</span>, donde <span class="math inline">\(a, b \in \mathbb{Q}\)</span>.
+El cuerpo <span class="math inline">\(K\)</span> se llama <em>cuerpo cuadrático imaginario</em>, ya que es una extensión de grado 2 de <span class="math inline">\(\mathbb{Q}\)</span> dada por <span class="math inline">\(K = \mathbb{Q}[x]/(x^2 - m)\)</span>.</p>
+<p>También tiene un <em>anillo de enteros</em> <span class="math inline">\(\mathcal{O}_K\)</span>, que es el análogo de <span class="math inline">\(\mathbb{Z}\)</span> para este cuerpo.
+De hecho, <span class="math inline">\(\mathcal{O}_K\)</span> es la <a href="https://es.wikipedia.org/wiki/Elemento_entero#Clausura_entera">clausura integral</a> de <span class="math inline">\(\mathbb{Z}\)</span> en <span class="math inline">\(K\)</span>.</p>
+<p>Desafortunadamente, el anillo <span class="math inline">\(\mathcal{O}_K\)</span> no siempre es un dominio de factorización única.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+Por ejemplo, en <span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span> tenemos <span class="math inline">\(6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})\)</span>.
+El <em>número de clase</em> mide exactamente cuánto falla la factorización única en <span class="math inline">\(\mathcal{O}_K\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Ahora, sea
+\[
+N = ]</p>
+<p>El número <span class="math inline">\(N\)</span> se conoce como el <em>discriminante</em> del cuerpo numérico.
+Podemos definir un homomorfismo de grupos $: (/N)^{} $ como sigue:
+para cualquier primo <span class="math inline">\(p\)</span> que no divida a <span class="math inline">\(m\)</span>, ponemos $(p) = (  ) $
+(Este es el símbolo de Legendre, que devuelve <span class="math inline">\(1\)</span> si <span class="math inline">\(m\)</span> tiene una raíz cuadrada en <span class="math inline">\(\mathbb{F}_p\)</span> y <span class="math inline">\(-1\)</span> en caso contrario).
+Usando la <a href="https://es.wikipedia.org/wiki/Ley_de_reciprocidad_cuadr%C3%A1tica">reciprocidad cuadrática</a>, podemos extenderlo a todos los enteros coprimos con <span class="math inline">\(m\)</span>.</p>
+</section>
+<section id="funciones-l" class="level1">
+<h1>Funciones L</h1>
+<p>Formamos entonces la serie
+\[
+L(s,) = _{n=1}^{} .
+\]
+donde <span class="math inline">\(\chi(n)\)</span> es <span class="math inline">\(\chi(n \mod N)\)</span> si <span class="math inline">\(n\)</span> es coprimo con <span class="math inline">\(N\)</span>, y <span class="math inline">\(0\)</span> en caso contrario.
+Este tipo de serie, que podemos definir para cualquier homomorfismo <span class="math inline">\(\chi : (\mathbb{Z}/n\mathbb{Z})^\times \to \mathbb{C}^\times\)</span>,
+se conoce como una función <span class="math inline">\(L\)</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, y es una extensión de la función <span class="math inline">\(\zeta\)</span> de Riemann.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>Por ejemplo, si <span class="math inline">\(m = -1\)</span>, entonces <span class="math inline">\(N=4\)</span>.
+Tenemos <span class="math inline">\(\chi(1 \mod 4) = 1\)</span> y <span class="math inline">\(\chi(3 \mod 4) = -1\)</span>.
+Así, \[L(s,) = 1 -  +  -  + \]
+Y en particular, \[L(1,) = 1 -  + -  + = \]</p>
+</section>
+<section id="el-teorema" class="level1">
+<h1>El teorema</h1>
+<p>He aquí el teorema principal, llamado la fórmula del número de clase para cuerpos cuadráticos imaginarios.</p>
+<blockquote>
+<p>Para un cuerpo cuadrático imaginario <span class="math inline">\(K\)</span>, sea <span class="math inline">\(h_K\)</span> su número de clase y <span class="math inline">\(w_K\)</span> el número de raíces de <span class="math inline">\(1\)</span> en <span class="math inline">\(K\)</span>. Entonces:
+\[h_K =  L(0,) =  L(1,).\]</p>
+</blockquote>
+<p>Así pues, el hecho de que el anillo de enteros sea o no un dominio de factorización única depende del valor de una cierta función <span class="math inline">\(\zeta\)</span>.</p>
+<p>Por ejemplo, tomemos de nuevo <span class="math inline">\(m = -1\)</span>, por lo que <span class="math inline">\(K = \mathbb{Q}(\sqrt{-1} )\)</span>.
+Las raíces de la unidad en este cuerpo son <span class="math inline">\(1, -1, \sqrt{-1}\)</span>, y <span class="math inline">\(-\sqrt{-1}\)</span>, así que <span class="math inline">\(w_k = 4\)</span>.
+Usando el teorema, obtenemos:
+\[
+h_K =  L(1,) =  L(1,) =  L(1,)
+\]
+Aquí <span class="math inline">\(L(1,\chi) = 1 - \frac{1}{3} + \frac{1}{5} - \dots = \frac{\pi}{4}\)</span>, por lo que <span class="math inline">\(h_K = 1\)</span>.
+Por lo tanto, <span class="math inline">\(\mathcal{O}_K = \mathbb{Z}[\sqrt{-1}]\)</span> es un dominio de ideales principales.
+¡Es sorprendente que hayamos tomado un desvío a través del análisis para demostrar un hecho algebraico!</p>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>No es necesario un valor exacto; a veces incluso una aproximación es suficiente.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Si <span class="math inline">\(\mathcal{O}_K\)</span> fuera siempre un dominio de factorización única, ¡entonces el último teorema de Fermat se habría probado casi 150 años antes!
+En 1847, <a href="https://es.wikipedia.org/wiki/Gabriel_Lam%C3%A9">Gabriel Lamé</a> dio una <a href="https://gallica.bnf.fr/ark:/12148/bpt6k29812/f310.item">demostración</a> <a href="https://math.stackexchange.com/q/953462">errónea</a> que dependía de que <span class="math inline">\(\mathbb{Z}[\zeta_n]\)</span> fuera un dominio de factorización única, donde <span class="math inline">\(\zeta_n\)</span> es una raíz <span class="math inline">\(n\)</span>-ésima primitiva de la unidad.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Es el orden de un cierto grupo conocido como el <a href="https://es.wikipedia.org/wiki/Grupo_de_clases_de_ideales">grupo de clases de ideales</a>.
+Cuando el orden es <span class="math inline">\(1\)</span>, <span class="math inline">\(\mathcal{O}_K\)</span> es un dominio de factorización única.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Es una <a href="https://es.wikipedia.org/wiki/Funci%C3%B3n_L_de_Dirichlet">función L de Dirichlet</a> para ser precisos; hay muchos tipos de funciones <span class="math inline">\(L\)</span> en la teoría de números.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>La función <span class="math inline">\(\zeta\)</span> de Riemann es una función <span class="math inline">\(L\)</span> con <span class="math inline">\(N=2\)</span>, porque <span class="math inline">\((\mathbb{Z}/2\mathbb{Z})^\times = \{1\}\)</span> y el homomorfismo debe enviar el <span class="math inline">\(1\)</span> al <span class="math inline">\(1\)</span>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+      <footer>
+    <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+        <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+            <img class="fleuron-block" src="https://tony-zorman.com/images/fleuron.svg" alt="End of post fleuron" style="filter: invert(1);">
+        </span>
+    </div>
+    </footer>
+
+<script>
+if (document.querySelector("table")) {
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    // Corregida la ruta: site.hs sirve js/* en /js/, no en /assets/js/
+    js.src = "https://mynd.neocities.org/js/tablesorter.js";
+    document.body.appendChild(js);
+}
+</script>
+
+        </section>
+
+      </article>
+    </main>
+
+  </div>
+
+  <script src="https://mynd.neocities.org/js/jquery-1.7.1.min.js"></script>
+  <script src="https://mynd.neocities.org/js/scale.fix.js"></script>
+  <script src="https://mynd.neocities.org/js/anchors.js"></script>
+  <script src="https://mynd.neocities.org/js/sidenotes.js"></script>
+  <script src="https://mynd.neocities.org/js/footnotes.js"></script>
+  <script src="https://mynd.neocities.org/js/fix-footnotes.js"></script>
+</body>
+</html>

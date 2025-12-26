@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>index</title>
+  <meta name="description" content="Sitio personal">
+  
+  
+
+  <link rel="alternate" type="application/atom+xml" title="Site Feed" href="./feed.xml">
+
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/dark-mode.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/main.css">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/icons.css">
+
+  <link rel="preload" href="./fonts/crimson/crimson-roman-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="./fonts/crimson/crimson-italic-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="./fonts/crimson/crimson-semibold-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="./fonts/crimson/crimson-bold-webfont.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Retiro el "if" para que si falla, lance error en consola
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: true},
+                {left: ", right: ", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+        console.log("KaTeX renderizado ejecutado");
+    });
+  </script>
+  </script>
+
+  <script src="//instant.page/5.1.0" type="module"></script>
+  <script src="./js/helper.js"></script>
+</head>
+
+<body class="siteIndex">
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="./" id="logo" aria-label="Home">
+          <img src="./img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1); margin:10px">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="./about.html">About</a>
+          <a class="site" href="./books">Readings</a>
+        </nav>
+
+        
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        
+          
+          
+        
+
+        
+
+        <section id="markdownBody">
+          <p class="no-cap">
+<span style="font-variant:small-caps;">This is the website</span> of <strong>a-peirogon</strong>. Small corner of the internet that I've claimed for myself.
+    I write about mathematics, linguistics, computer science, etc.
+</p>
+
+<section class="recent-posts">
+    <h1>Recent</h1>
+
+    <ul class="post-list">
+    
+        <li>
+            <a href="./posts/2021-04-30-Class-number.html">Formula del número de clase</a>
+            <span class="post-date" style="font-size: 0.85em; opacity: 0.8;">— December 15, 2025</span>
+        </li>
+    
+    </ul>
+    </section>
+
+        </section>
+
+      </article>
+    </main>
+
+  </div>
+
+  <script src="https://mynd.neocities.org/js/jquery-1.7.1.min.js"></script>
+  <script src="https://mynd.neocities.org/js/scale.fix.js"></script>
+  <script src="https://mynd.neocities.org/js/anchors.js"></script>
+  <script src="https://mynd.neocities.org/js/sidenotes.js"></script>
+  <script src="https://mynd.neocities.org/js/footnotes.js"></script>
+  <script src="https://mynd.neocities.org/js/fix-footnotes.js"></script>
+</body>
+</html>
