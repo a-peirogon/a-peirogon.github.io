@@ -1,0 +1,11 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes}
+\begin{document}
+\begin{tikzpicture}
+  \draw[->] (0,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,3) node[above] {$y$};
+  \draw[domain=0:3.5,smooth,variable=\x,blue,thick] plot ({\x},{0.5*\x*\x});
+  \node at (2,2.5) {$y = \frac{1}{2}x^2$};
+\end{tikzpicture}
+\end{document}

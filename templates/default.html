@@ -35,7 +35,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Retiro el "if" para que si falla, lance error en consola
         renderMathInElement(document.body, {
             delimiters: [
                 {left: "$$", right: "$$", display: true},
@@ -47,7 +46,6 @@
         });
         console.log("KaTeX renderizado ejecutado");
     });
-  </script>
   </script>
 
   <script src="//instant.page/5.1.0" type="module"></script>
@@ -62,20 +60,21 @@
       <div class="sidebar-inner">
 
         <a href="/" id="logo" aria-label="Home">
-          <img src="/img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1); margin:10px">
+          <img src="/img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1);">
         </a>
 
         <nav id="site-nav">
           <a class="site" href="/about.html">About</a>
-          <a class="site" href="/books">Readings</a>
+          <a class="site" href="/research.html">Research</a>
+
         </nav>
 
-        $if(toc)$
+<!--        $if(toc)$
         <nav id="toc-sidebar" aria-label="Table of contents">
           <h3>Contenido</h3>
           $toc$
         </nav>
-        $endif$
+        $endif$-->
 
       </div>
     </aside>
@@ -106,6 +105,23 @@
         </section>
 
       </article>
+
+      <footer id="site-footer">
+          <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+            <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+              <img class="fleuron-block"
+                 src="/img/fleuron.svg"
+                 alt="End of post fleuron"
+                 style="filter: invert(1);">
+            </span>
+          </div>
+        <nav>
+          <a href="/feed.xml" aria-label="RSS Feed">RSS</a>
+          <span class="separator">|</span>
+          <span>Website source: <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </nav>
+                <p style="margin-top:0;text-align:right">Everything on this website—<a style="color:#999" href="https://en.wikipedia.org/wiki/Dash#Em_dash">em dash</a> and all—was created by a human</p>
+      </footer>
     </main>
 
   </div>
@@ -117,4 +133,5 @@
   <script src="https://mynd.neocities.org/js/footnotes.js"></script>
   <script src="https://mynd.neocities.org/js/fix-footnotes.js"></script>
 </body>
+
 </html>
