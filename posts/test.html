@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lorem ipsum</title>
+  <meta name="description" content="Sitio personal">
+  
+  
+
+  <link rel="alternate" type="application/atom+xml" title="Site Feed" href="../feed.xml">
+
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/dark-mode.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/main.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="https://mynd.neocities.org/css/icons.css">
+
+  <link rel="preload" href="../fonts/crimson/crimson-roman-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-italic-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-semibold-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/crimson/crimson-bold-webfont.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: true},
+                {left: ", right: ", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+        console.log("KaTeX renderizado ejecutado");
+    });
+  </script>
+
+  <script src="//instant.page/5.1.0" type="module"></script>
+  <script src="../js/helper.js"></script>
+</head>
+
+<body>
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="../" id="logo" aria-label="Home">
+          <img src="../img/logo_wiki.png" alt="Home" width="85" height="85" style="filter:invert(1);">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="../about.html">About</a>
+          <a class="site" href="../research.html">Research</a>
+
+        </nav>
+
+<!--        
+        <nav id="toc-sidebar" aria-label="Table of contents">
+          <h3>Contenido</h3>
+          <div id="TOC" class="TOC"><ul>
+<li><a href="#introduction-to-lorem-ipsum" >Introduction to Lorem Ipsum</a>
+<ul>
+<li><a href="#code-highlighting-with-pygments" >Code highlighting with pygments</a></li>
+<li><a href="#mathematical-expressions" >Mathematical expressions</a></li>
+<li><a href="#tikz-diagram-test" >TikZ diagram test</a></li>
+<li><a href="#lists-and-structure" >Lists and structure</a>
+<ul>
+<li><a href="#unordered-list" >Unordered list</a></li>
+<li><a href="#ordered-list" >Ordered list</a></li>
+</ul></li>
+<li><a href="#block-quotes" >Block quotes</a></li>
+<li><a href="#tables" >Tables</a></li>
+<li><a href="#more-complex-tikz" >More complex TikZ</a></li>
+<li><a href="#emphasis-and-formatting" >Emphasis and formatting</a></li>
+<li><a href="#footnotes" >Footnotes</a></li>
+<li><a href="#conclusion" >Conclusion</a></li>
+</ul></li>
+</ul></div>
+        </nav>
+        -->
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        
+          
+          <header class="page-header">
+            <h1>Lorem ipsum</h1>
+          </header>
+          
+        
+
+        
+
+        <section id="markdownBody">
+          <div class="post-metadata">
+    <span id="page-metadata-block">
+        <span id="page-date-range">
+            January 13, 2026
+        </span>
+        
+        <span id="page-tags">
+            tags: <em>testing, demo, lorem-ipsum</em>
+        </span>
+        
+    </span>
+</div>
+
+
+
+<section id="introduction-to-lorem-ipsum" class="level1">
+<h1>Introduction to Lorem Ipsum</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<section id="code-highlighting-with-pygments" class="level2">
+<h2>Code highlighting with pygments</h2>
+<p>Here’s some Haskell:</p>
+<div class="sourceCode"><pre><span></span><span class="c1">-- Factorial function</span>
+<span class="nf">factorial</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Integer</span>
+<span class="nf">factorial</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="nf">factorial</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">-- QuickSort implementation</span>
+<span class="nf">quicksort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">quicksort</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">quicksort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="n">larger</span>
+<span class="w">  </span><span class="kr">where</span>
+<span class="w">    </span><span class="n">smaller</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+<span class="w">    </span><span class="n">larger</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">b</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
+</pre></div>
+
+</section>
+<section id="mathematical-expressions" class="level2">
+<h2>Mathematical expressions</h2>
+<p>Testing inline math: <span class="math inline">\(E = mc^2\)</span> and the quadratic formula <span class="math inline">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span>.</p>
+<p>Display math:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\]</span></p>
+<p>Another example:</p>
+<p><span class="math display">\[
+\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}
+\]</span></p>
+</section>
+<section id="tikz-diagram-test" class="level2">
+<h2>TikZ diagram test</h2>
+<p>Here’s a simple TikZ diagram:</p>
+<pre class="sourceCode tikzpicture-error"><code>\begin{tikzpicture}
+  \draw[-&gt;] (0,0) -- (4,0) node[right] {$x$};
+  \draw[-&gt;] (0,0) -- (0,3) node[above] {$y$};
+  \draw[domain=0:3.5,smooth,variable=\x,blue,thick] plot ({\x},{0.5*\x*\x});
+  \node at (2,2.5) {$y = \frac{1}{2}x^2$};
+\end{tikzpicture}</code></pre>
+</section>
+<section id="lists-and-structure" class="level2">
+<h2>Lists and structure</h2>
+<section id="unordered-list" class="level3">
+<h3>Unordered list</h3>
+<ul>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit
+<ul>
+<li>Nested item one</li>
+<li>Nested item two</li>
+</ul></li>
+<li>Sed do eiusmod tempor incididunt</li>
+</ul>
+</section>
+<section id="ordered-list" class="level3">
+<h3>Ordered list</h3>
+<ol type="1">
+<li>First important point about lorem ipsum</li>
+<li>Second crucial observation</li>
+<li>Third significant detail
+<ol type="1">
+<li>Sub-point alpha</li>
+<li>Sub-point beta</li>
+</ol></li>
+<li>Fourth and final consideration</li>
+</ol>
+</section>
+</section>
+<section id="block-quotes" class="level2">
+<h2>Block quotes</h2>
+<blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+<p>— Marcus Tullius Cicero</p>
+</blockquote>
+</section>
+<section id="tables" class="level2">
+<h2>Tables</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>Paradigm</th>
+<th>Type System</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Haskell</td>
+<td>Functional</td>
+<td>Static, Strong</td>
+</tr>
+<tr class="even">
+<td>Python</td>
+<td>Multi-paradigm</td>
+<td>Dynamic, Strong</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>Procedural</td>
+<td>Static, Weak</td>
+</tr>
+<tr class="even">
+<td>JavaScript</td>
+<td>Multi-paradigm</td>
+<td>Dynamic, Weak</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="more-complex-tikz" class="level2">
+<h2>More complex TikZ</h2>
+<pre class="sourceCode tikzpicture-error"><code>\begin{tikzpicture}[node distance=2cm]
+  \node[circle,draw] (A) {A};
+  \node[circle,draw] (B) [right of=A] {B};
+  \node[circle,draw] (C) [below of=A] {C};
+  \node[circle,draw] (D) [right of=C] {D};
+  
+  \draw[-&gt;] (A) -- (B);
+  \draw[-&gt;] (A) -- (C);
+  \draw[-&gt;] (B) -- (D);
+  \draw[-&gt;] (C) -- (D);
+\end{tikzpicture}</code></pre>
+</section>
+<section id="emphasis-and-formatting" class="level2">
+<h2>Emphasis and formatting</h2>
+<p>This is <em>italic text</em> and this is <strong>bold text</strong>. We can also combine <strong><em>both italic and bold</em></strong>.</p>
+<p>Here’s some <code>inline code</code> within a sentence.</p>
+</section>
+<section id="footnotes" class="level2">
+<h2>Footnotes</h2>
+<p>This sentence has a footnote<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. And this one has another<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2>Conclusion</h2>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<hr />
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is the first footnote with some additional context about Lorem Ipsum being placeholder text since the 1500s.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Footnotes are automatically numbered and linked.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>They appear at the bottom of the page in the rendered version.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+<script>
+if (document.querySelector("table")) {
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    // Corregida la ruta: site.hs sirve js/* en /js/, no en /assets/js/
+    js.src = "https://mynd.neocities.org/js/tablesorter.js";
+    document.body.appendChild(js);
+}
+</script>
+
+        </section>
+
+      </article>
+
+      <footer id="site-footer">
+          <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+            <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+              <img class="fleuron-block" src="../img/fleuron.svg" alt="End of post fleuron" style="filter: invert(1);">
+            </span>
+          </div>
+        <nav>
+          <a href="../feed.xml" aria-label="RSS Feed">RSS</a>
+          <span class="separator">|</span>
+          <span>Website source: <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </nav>
+                <p style="margin-top:0;text-align:right">Everything on this website—<a style="color:#999" href="https://en.wikipedia.org/wiki/Dash#Em_dash">em dash</a> and all—was created by a human</p>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="https://mynd.neocities.org/js/jquery-1.7.1.min.js"></script>
+  <script src="https://mynd.neocities.org/js/scale.fix.js"></script>
+  <script src="https://mynd.neocities.org/js/anchors.js"></script>
+  <script src="https://mynd.neocities.org/js/sidenotes.js"></script>
+  <script src="https://mynd.neocities.org/js/footnotes.js"></script>
+  <script src="https://mynd.neocities.org/js/fix-footnotes.js"></script>
+</body>
+
+</html>

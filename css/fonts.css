@@ -1,0 +1,75 @@
+/* ----------------------------------------------------------------------------
+ * Font Faces
+ * ---------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'et-book';
+  src: url("../fonts/et-book-roman-line-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'et-book';
+  src: url("../fonts/et-book-display-italic-old-style-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'et-book';
+  src: url("../fonts/et-book-bold-line-figures.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'crimson';
+  src: url("../fonts/crimson-roman-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'crimson';
+  src: url("../fonts/crimson-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'crimson';
+  src: url("../fonts/crimson-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'crimson';
+  src: url("../fonts/crimson-bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CheshireInitials';
+  src: url('../fonts/CheshireInitials.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hopf Mono';
+  src: url('../fonts/hopf-mono-Regular.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
