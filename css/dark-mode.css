@@ -1,0 +1,771 @@
+  :root {
+      /* ============================================================================
+       * DARK MODE - Escala de grises elegante y minimalista
+       * ============================================================================
+       * 
+       * Filosofía: Tonos neutros de gris con acentos sutiles para máxima legibilidad
+       * y elegancia tipográfica. Inspirado en terminales clásicas y papel de alto contraste.
+       */
+  
+      /* ----------------------------------------------------------------------------
+       * Base - Fondo y texto principal
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-body-background-color: #0d0d0d;           /* Negro casi puro (previene pixels muertos) */
+      --GW-body-text-color: #e8e8e8;                 /* Gris muy claro, suave para los ojos */
+  
+      /* ----------------------------------------------------------------------------
+       * Links - Enfoque minimalista con grises sutiles
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-body-link-color: #b8b8b8;                 /* Gris medio-claro */
+      --GW-body-link-hover-color: #d4d4d4;           /* Gris más claro al hover */
+      
+      --GW-link-underline-background-color: var(--GW-body-background-color);
+      --GW-link-underline-gradient-line-color: #707070;
+      --GW-link-underline-gradient-line-color-hover: #909090;
+  
+      /* ----------------------------------------------------------------------------
+       * Selección de texto
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-text-selection-background-color: #2a2a2a;
+      --GW-text-selection-color: #ffffff;
+  
+      /* ----------------------------------------------------------------------------
+       * Blockquotes - Escalas sutiles de gris
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-blockquote-border-color-level-one: #4a4a4a;
+      --GW-blockquote-border-color-level-two: #3a3a3a;
+      --GW-blockquote-border-color-level-three: #2a2a2a;
+      --GW-blockquote-border-color-level-four: #1a1a1a;
+      
+      --GW-blockquote-background-color-level-one: #1a1a1a;
+      --GW-blockquote-background-color-level-two: #151515;
+      --GW-blockquote-background-color-level-three: #121212;
+  
+      /* ----------------------------------------------------------------------------
+       * Abstracts
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-abstract-border-color: #4a4a4a;
+      --GW-abstract-background-color: var(--GW-blockquote-background-color-level-one);
+  
+      /* ----------------------------------------------------------------------------
+       * Sidebar y navegación
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-sidebar-horizontal-rule-color: #2a2a2a;
+      --GW-sidebar-mobile-link-border-color: #4a4a4a;
+  
+      /* ----------------------------------------------------------------------------
+       * Table of Contents
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-TOC-border-color: #2a2a2a;
+      --GW-TOC-background-color: #1a1a1a;
+      --GW-TOC-link-hover-background-color: #252525;
+      --GW-TOC-link-hover-color: #d4d4d4;
+      --GW-TOC-link-hover-indicator-bar-color: #707070;
+      --GW-TOC-number-color: #6a6a6a;
+      --GW-TOC-number-hover-color: #9a9a9a;
+  
+      /* ----------------------------------------------------------------------------
+       * Collapse blocks
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-collapse-summary-blockquote-hover-color: #252525;
+      --GW-collapse-disclosure-button-color: #1a1a1a;
+      --GW-collapse-disclosure-button-hover-color: #252525;
+      --GW-collapse-disclosure-button-top-part-text-color: #6a6a6a;
+      --GW-collapse-disclosure-button-bottom-part-text-color: #8a8a8a;
+      --GW-collapse-disclosure-button-text-hover-color: #d4d4d4;
+  
+      /* ----------------------------------------------------------------------------
+       * Headings
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-H1-box-shadow-background-color: var(--GW-body-background-color);
+      --GW-H1-box-shadow-line-color: #4a4a4a;
+      --GW-H2-bottom-border-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Comments
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-comment-section-top-border-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Lists
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-bulleted-list-marker-color: #6a6a6a;
+  
+      /* ----------------------------------------------------------------------------
+       * Figures e imágenes
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-figure-outline-color: #2a2a2a;
+      --GW-figure-caption-outline-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Epigraphs
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-epigraph-quotation-mark-color: #4a4a4a;
+  
+      /* ----------------------------------------------------------------------------
+       * Footnotes
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-footnote-border-color: #2a2a2a;
+      --GW-footnote-highlighted-border-color: #5a5a5a;
+      --GW-footnotes-section-top-rule-color: #2a2a2a;
+      --GW-footnote-backlink-border-color: #4a4a4a;
+      --GW-footnote-backlink-border-hover-color: #6a6a6a;
+      --GW-footnote-backlink-after-bordered-block-background-color: var(--GW-body-background-color);
+  
+      /* Footnote references */
+      --GW-footnote-ref-highlight-box-shadow-color: #4a4a4a;
+      --GW-footnote-ref-highlight-background-color: rgba(70, 70, 70, 0.3);
+  
+      /* ----------------------------------------------------------------------------
+       * Sidenotes
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-sidenote-highlight-background-color: var(--GW-body-background-color);
+      --GW-sidenote-highlight-box-shadow-color: #4a4a4a;
+      --GW-sidenote-border-color: #2a2a2a;
+      --GW-sidenote-scrollbar-track-color: var(--GW-body-background-color);
+      --GW-sidenote-scrollbar-thumb-color: #2a2a2a;
+      --GW-sidenote-scrollbar-thumb-hover-color: #3a3a3a;
+      --GW-sidenote-self-link-border-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Tables
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-table-border-color: #2a2a2a;
+      --GW-table-full-width-background-color: var(--GW-body-background-color);
+      --GW-table-caption-border-color: #2a2a2a;
+      --GW-table-row-horizontal-border-color: #1a1a1a;
+      --GW-table-cell-vertical-border-color: var(--GW-body-background-color);
+      --GW-table-scrollbar-track-color: var(--GW-body-background-color);
+      --GW-table-scrollbar-thumb-color: #2a2a2a;
+      --GW-table-scrollbar-thumb-hover-color: #3a3a3a;
+      --GW-table-scrollbar-border-color: #2a2a2a;
+      --GW-table-column-heading-hover-background-color: #1a1a1a;
+      --GW-table-sorted-column-heading-background-color: #252525;
+      --GW-table-sorted-column-heading-text-color: #e8e8e8;
+      --GW-table-sorted-column-heading-text-shadow-color: rgba(0, 0, 0, 0.6);
+      --GW-table-zebra-stripe-alternate-row-background-color: #151515;
+      --GW-table-row-hover-outline-color: #4a4a4a;
+  
+      /* ----------------------------------------------------------------------------
+       * Code blocks - Terminal clásica
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-code-element-border-color: #2a2a2a;
+      --GW-code-element-background-color: #1a1a1a;
+      --GW-pre-element-border-color: #2a2a2a;
+      --GW-pre-element-background-color: #1a1a1a;
+      --GW-pre-element-scrollbar-track-color: #1a1a1a;
+      --GW-pre-element-scrollbar-thumb-color: #2a2a2a;
+      --GW-pre-element-scrollbar-thumb-hover-color: #3a3a3a;
+  
+      /* Variables adicionales para sourceCode */
+      --code-bg: #1a1a1a;
+      --code-border: #2a2a2a;
+      --code-fg: #d4d4d4;
+  
+      /* ----------------------------------------------------------------------------
+       * Syntax highlighting - Escala de grises sutil
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-syntax-highlight-color-normal: #d4d4d4;           /* Texto normal */
+      --GW-syntax-highlight-color-attribute: #c4c4c4;        /* Atributos */
+      --GW-syntax-highlight-color-data-type: #b4b4b4;        /* Tipos de datos */
+      --GW-syntax-highlight-color-variable: #a4a4a4;         /* Variables */
+      --GW-syntax-highlight-color-other: inherit;
+      --GW-syntax-highlight-color-preprocessor: #b4b4b4;
+      --GW-syntax-highlight-color-extension: #9a9a9a;
+      --GW-syntax-highlight-color-comment: #6a6a6a;          /* Comentarios más tenues */
+      --GW-syntax-highlight-color-control-flow: #e8e8e8;     /* Control de flujo destacado */
+      --GW-syntax-highlight-color-keyword: #c4c4c4;          /* Keywords */
+      --GW-syntax-highlight-color-operator: #b4b4b4;
+      --GW-syntax-highlight-color-special-char: #d4d4d4;
+      --GW-syntax-highlight-color-built-in: #c4c4c4;
+      --GW-syntax-highlight-color-function: #d4d4d4;
+      --GW-syntax-highlight-color-constant: #b4b4b4;
+      --GW-syntax-highlight-color-base-n: #a4a4a4;
+      --GW-syntax-highlight-color-dec-val: #a4a4a4;
+      --GW-syntax-highlight-color-float: #a4a4a4;
+      --GW-syntax-highlight-color-information: #b4b4b4;
+      --GW-syntax-highlight-color-char: #c4c4c4;
+      --GW-syntax-highlight-color-string: #9a9a9a;           /* Strings más sutiles */
+      --GW-syntax-highlight-color-verbatim-string: #9a9a9a;
+      --GW-syntax-highlight-color-alert: #e8e8e8;            /* Alerts en blanco */
+      --GW-syntax-highlight-color-error: #e8e8e8;
+      --GW-syntax-highlight-color-import: #b4b4b4;
+      --GW-syntax-highlight-color-special-string: #c4c4c4;
+  
+      /* ----------------------------------------------------------------------------
+       * Math
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-math-block-background-color: #1a1a1a;
+      --GW-math-block-scrollbar-border-color: #2a2a2a;
+      --GW-math-block-scrollbar-track-color: var(--GW-body-background-color);
+      --GW-math-block-scrollbar-thumb-color: #2a2a2a;
+      --GW-math-block-scrollbar-thumb-hover-color: #3a3a3a;
+  
+      /* ----------------------------------------------------------------------------
+       * Drop caps
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-drop-caps-yinit-color: #e8e8e8;
+      --GW-drop-caps-yinit-text-shadow-color: #4a4a4a;
+      --GW-drop-caps-de-zs-color: #e8e8e8;
+      --GW-drop-caps-cheshire-color: #e8e8e8;
+      --GW-drop-caps-kanzlei-color: #e8e8e8;
+  
+      /* ----------------------------------------------------------------------------
+       * Admonitions
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-admonition-default-left-border-color: #4a4a4a;
+      --GW-admonition-default-background-color: #1a1a1a;
+      
+      --GW-admonition-tip-left-border-color: #6a6a6a;
+      --GW-admonition-tip-background-color: #1a1a1a;
+      
+      --GW-admonition-warning-left-border-color: #8a8a8a;
+      --GW-admonition-warning-background-color: #1a1a1a;
+      --GW-admonition-warning-text-color: #e8e8e8;
+      --GW-admonition-warning-title-background-color: rgba(138, 138, 138, 0.15);
+      --GW-admonition-warning-icon-color: #8a8a8a;
+      
+      --GW-admonition-error-left-border-color: #b4b4b4;
+      --GW-admonition-error-background-color: #1a1a1a;
+      --GW-admonition-error-text-color: #e8e8e8;
+      --GW-admonition-error-title-background-color: rgba(180, 180, 180, 0.15);
+      --GW-admonition-error-icon-color: #b4b4b4;
+      
+      --GW-admonition-reversed-link-color: #b8b8b8;
+      --GW-admonition-reversed-link-color-hover: #d4d4d4;
+      --GW-admonition-reversed-link-underline-gradient-line-color: #707070;
+      --GW-admonition-reversed-link-underline-gradient-line-color-hover: #909090;
+      --GW-admonition-reversed-footnote-ref-highlight-background-color: rgba(70, 70, 70, 0.35);
+  
+      /* ----------------------------------------------------------------------------
+       * Sequential navigation UI
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-sequential-nav-link-background-color: var(--GW-body-background-color);
+  
+      /* ----------------------------------------------------------------------------
+       * Page-specific styles
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-index-page-bottom-ornament-line-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Pop-frames (popups o popins)
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-raw-code-popframe-line-highlight-background-color: #252525;
+      --GW-raw-code-popframe-line-hightlight-border-color: #4a4a4a;
+      --GW-raw-code-popframe-line-number-color: #6a6a6a;
+      --GW-raw-code-popframe-line-number-divider-color: #2a2a2a;
+  
+      /* ----------------------------------------------------------------------------
+       * Popups
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-popups-body-background-color: var(--GW-body-background-color);
+      --GW-popups-popup-background-color: #1a1a1a;
+      --GW-popups-popup-border-color: #2a2a2a;
+      --GW-popups-box-shadow-color: rgba(0, 0, 0, 0.7);
+      --GW-popups-popup-border-focused-color: #4a4a4a;
+      --GW-popups-box-shadow-focused-color: rgba(74, 74, 74, 0.4);
+      
+      --GW-popups-popup-title-bar-background-color: #151515;
+      --GW-popups-popup-title-bar-button-color: #6a6a6a;
+      --GW-popups-popup-title-bar-button-color-hover: #d4d4d4;
+      --GW-popups-popup-title-color: rgba(232, 232, 232, 0.6);
+      --GW-popups-popup-title-link-hover-color: var(--GW-body-link-hover-color);
+      --GW-popups-popup-title-bar-background-focused-color: #1a1a1a;
+      --GW-popups-popup-title-bar-button-focused-color: #8a8a8a;
+      --GW-popups-popup-title-bar-button-focused-color-hover: #d4d4d4;
+      --GW-popups-popup-title-bar-submenu-box-shadow-color: rgba(0, 0, 0, 0.8);
+      --GW-popups-popup-title-focused-color: #e8e8e8;
+      --GW-popups-popup-title-link-hover-focused-color: var(--GW-body-link-hover-color);
+      
+      --GW-popups-popup-scrollbar-track-color: var(--GW-body-background-color);
+      --GW-popups-popup-scrollbar-thumb-color: #2a2a2a;
+      --GW-popups-popup-scrollbar-thumb-hover-color: #3a3a3a;
+      --GW-popups-popup-scrollbar-thumb-focused-color: #4a4a4a;
+      --GW-popups-popup-scrollbar-thumb-hover-focused-color: #5a5a5a;
+      
+      --GW-popups-popup-options-dialog-backdrop-background-color: rgba(0, 0, 0, 0.9);
+      --GW-popups-popup-options-dialog-background-color: #1a1a1a;
+      --GW-popups-popup-options-dialog-border-color: #2a2a2a;
+      --GW-popups-popup-options-dialog-box-shadow-color: rgba(74, 74, 74, 0.4);
+      --GW-popups-popup-options-dialog-horizontal-rule-color: #2a2a2a;
+      --GW-popups-popup-options-dialog-button-background-color: #151515;
+      --GW-popups-popup-options-dialog-button-text-color: #d4d4d4;
+      --GW-popups-popup-options-dialog-button-border-color: #4a4a4a;
+      --GW-popups-popup-options-dialog-button-hover-box-shadow-color: #5a5a5a;
+      --GW-popups-popup-options-dialog-option-button-explanation-text-color: #8a8a8a;
+      --GW-popups-popup-options-dialog-option-button-hover-text-color: #e8e8e8;
+      --GW-popups-popup-options-dialog-radio-button-border-color: #4a4a4a;
+      --GW-popups-show-popup-options-dialog-button-color: #6a6a6a;
+  
+      /* ----------------------------------------------------------------------------
+       * Popins
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-popins-body-background-color: var(--GW-body-background-color);
+      --GW-popins-popin-background-color: #1a1a1a;
+      --GW-popins-popin-border-color: #2a2a2a;
+      --GW-popins-box-shadow-color: rgba(0, 0, 0, 0.7);
+      --GW-popins-popin-title-bar-background-color: #0a0a0a;
+      --GW-popins-popin-title-bar-button-color: #8a8a8a;
+      --GW-popins-popin-scrollbar-thumb-color: #2a2a2a;
+      --GW-popins-popin-scrollbar-track-color: var(--GW-body-background-color);
+      --GW-popins-popin-scrollbar-thumb-hover-color: #3a3a3a;
+      --GW-popins-popin-stack-counter-text-color: #d4d4d4;
+  
+      /* ----------------------------------------------------------------------------
+       * Image focus
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-image-focus-image-hover-drop-shadow-color: #6a6a6a;
+  
+      /* ----------------------------------------------------------------------------
+       * Mode selector (light/dark mode)
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-mode-selector-background-color: var(--GW-body-background-color);
+      --GW-mode-selector-border-hover-color: #4a4a4a;
+      --GW-mode-selector-button-text-color: #8a8a8a;
+      --GW-mode-selector-button-hover-text-color: #d4d4d4;
+  
+      /* ----------------------------------------------------------------------------
+       * "Back to top" link
+       * ---------------------------------------------------------------------------- */
+      
+      --GW-back-to-top-link-color: #6a6a6a;
+      --GW-back-to-top-link-hover-color: #9a9a9a;
+  }
+    /*  The ‘fill’ attribute of the SVGs is modified in dark mode.
+     *    (We cannot use an invert filter because we don’t want to invert the whole
+     *     element, only the background-image.)
+     */
+    .collapse .disclosure-button::before {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z" fill="%235C5C5C"></path></svg>');
+    }
+    .collapse .disclosure-button:hover::before {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z" fill="%23000"></path></svg>');
+    }
+    .collapse .disclosure-button:checked::before {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" fill="%235C5C5C"></path></svg>');
+    }
+    .collapse .disclosure-button:checked:hover::before {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" fill="%23000"></path></svg>');
+    }
+
+    /*  The ‘celestial symbol’ horizonal rules are SVGs and must be inverted.
+     */
+    hr::after,
+.horizontalRule-nth-0 hr::after {
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 0 currentColor);
+}
+.horizontalRule-nth-1 hr::after {
+    opacity: 0.75;
+    filter: invert(1);
+}
+.horizontalRule-nth-2 hr::after {
+    opacity: 0.85;
+    filter: invert(1);
+}
+
+/*  Drop cap opacity adjustment.
+ */
+.drop-cap-goudy::first-letter,
+.drop-cap-goudy > p::first-letter {
+    opacity: 0.95;
+}
+
+/*  Admonition icons.
+ */
+.admonition.tip::before,
+.admonition.note::before,
+.admonition.warn::before,
+.admonition.warning::before,
+.admonition.error::before {
+    filter: invert(1);
+}
+
+div.admonition.warn,
+div.admonition.warning,
+div.admonition.error {
+    --GW-dotted-underline-background-image: var(--GW-dotted-underline-hover-dark-background-image);
+}
+
+/*  List bullets are SVGs and have to be inverted.
+ */
+ul > li::before {
+    filter: invert(1);
+}
+
+/*  Exclusion for TOC entries.
+ */
+#TOC ul > li::before {
+filter: none;
+}
+
+/*  For sortable table column headings, we use dark versions of the up/down/both
+ *    arrow icons.
+ */
+table th.tablesorter-header {
+    background-image: url('/assets/img/tablesorter-bg-dark.gif');
+}
+table th.tablesorter-headerAsc {
+    background-image: url('/assets/img/tablesorter-asc-dark.gif');
+}
+table th.tablesorter-headerDesc {
+    background-image: url('/assets/img/tablesorter-desc-dark.gif');
+}
+
+/*  The pixel-grid-checkerboard pattern of these scroll bars is created by GIF
+ *    background-images; we use alternate versions of the images in dark mode.
+ */
+.table-wrapper::-webkit-scrollbar-thumb {
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAPAAMQAAAIiIiCwAAAAABAAEAAACBkwAhqgZBQA7');
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAPAAMQAAAL+/vywAAAAABAAEAAACBkwAhqgZBQA7');
+}
+
+.sidenote.cut-off .sidenote-outer-wrapper::-webkit-scrollbar-thumb {
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAPAAMQAAAIiIiCwAAAAABAAEAAACBkwAhqgZBQA7');
+}
+.sidenote.cut-off .sidenote-outer-wrapper::-webkit-scrollbar-thumb:hover {
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAPAAMQAAAL+/vywAAAAABAAEAAACBkwAhqgZBQA7');
+}
+
+/*  Images that are marked as invertible by the server are inverted,
+ *    hue-rotated, and desaturated. Other (non-invertible) images are merely
+ *    desaturated. Hovering over an image restores it to its original state.
+ */
+img.invertible,
+img.invertible-auto {
+    filter: grayscale(50%) invert(100%) brightness(95%) hue-rotate(180deg);
+}
+/*img:not(.invertible):not(.invertible-auto) {
+    filter: grayscale(50%);
+}
+*/
+img,
+img.invertible,
+img.invertible-auto {
+    transition: filter 0.25s ease;
+}
+img:hover,
+img.invertible:hover,
+img.invertible-auto:hover {
+    filter: none;
+    transition: filter 0s ease 0.25s;
+}
+
+/*  The loading spinner for object popups (image, iframe, object) is inverted
+ *    and made more visible in dark mode.
+ */
+.popupdiv.loading::before {
+    filter: invert(1);
+    opacity: 0.4;
+}
+
+/*  “Loading failed” messages for object popups.
+ */
+.popupdiv.loading-failed::after {
+    opacity: 0.4;
+}
+
+/*  The mode selector is adjusted to be better visible in dark mode, and its
+ *    button icons inverted.
+ */
+div#mode-selector {
+    opacity: 0.6;
+}
+div#mode-selector button::before {
+    filter: invert(1);
+    opacity: 0.45;
+}
+div#mode-selector button.select-mode-light::before {
+    opacity: 0.55;
+}
+
+/*  The dotted underline for Wikipedia links is created by a
+ *    pixel-grid-checkerboard background-image. We use an alternate version of
+ *    this image in dark mode.
+ */
+.markdownBody a[href*='wikipedia.org'].docMetadata:hover,
+.markdownBody a[href*='wikimedia.org'].docMetadata:hover,
+.markdownBody a[href*='wiktionary.org'].docMetadata:hover,
+.markdownBody a[href*='wikimediafoundation.org'].docMetadata:hover,
+.markdownBody a[href*='wikisource.org'].docMetadata:hover {
+    background-image: var(--GW-dotted-underline-hover-dark-background-image);
+}
+
+/*  All SVG linkicons have to be inverted.
+ */
+a.link-self.identifier-link-up::after,
+a.link-self.identifier-link-down::after,
+a[href*="oxyde.ga"]::after,
+a[href$='.pdf' i]::after,
+a[href$='/pdf' i]::after,
+a[href*='/pdf/' i]::after,
+a[href$='type=pdf' i]::after,
+a[href*='.pdf#' i]::after,
+a[href*='pdfs.semanticscholar.org' i]::after,
+a[href$='.epub' i]::after,
+a[href*='citeseerx.ist.psu.edu' i]::after,
+a[href*='eprint.iacr.org' i]::after,
+a[href$='.opml' i]::after,
+a[href$='.txt' i]::after,
+a[href$='.xml' i]::after,
+a[href$='.css' i]::after,
+a[href$='.hs' i]::after,
+a[href$='.js' i]::after,
+a[href$='.json' i]::after,
+a[href$='.jsonl' i]::after,
+a[href^='/'][href$='.php' i]::after,
+a[href$='.conf' i]::after,
+a[href$='.sh' i]::after,
+a[href$='.R' i]::after,
+a[href$='.patch' i]::after,
+a[href$='.diff' i]::after,
+a[href^="/static/" i][href$=".html" i]::after,
+a[href$='.doc' i]::after,
+a[href$='.docx' i]::after,
+a[href*='docs.google.com' i]::after,
+a[href$='.xls' i]::after,
+a[href$='.xlsx' i]::after,
+a[href$='.ods' i]::after,
+a[href$='.csv' i]::after,
+a[href$='.gif' i]::after,
+a[href$='.bmp' i]::after,
+a[href$='.ico' i]::after,
+a[href$='.jpg' i]::after,
+a[href$='.jpeg' i]::after,
+a[href$='.png' i]::after,
+a[href$='.svg' i]::after,
+a[href$='.xcf' i]::after,
+a[href*='imgur.com']::after,
+a[href$='.mp3' i]::after,
+a[href$='.wav' i]::after,
+a[href$='.flac' i]::after,
+a[href$='.ogg' i]::after,
+a[href$='.rm' i]::after,
+a[href$='.swf' i]::after,
+a[href$='.avi' i]::after,
+a[href$='.mp4' i]::after,
+a[href$='.webm' i]::after,
+a[href$='.tar' i]::after,
+a[href$='.zip' i]::after,
+a[href$='.xz'  i]::after,
+a[href$='.img' i]::after,
+a[href$='.bin' i]::after,
+a[href$='.pkl' i]::after,
+a[href$='.onnx' i]::after,
+a[href$='.pt' i]::after,
+a[href$='.ebt' i]::after,
+a[href$='.mdb' i]::after,
+a[href$='.mht' i]::after,
+a[href$='.ttf' i]::after,
+a[href*='biorxiv.org']::after,
+a[href*='medrxiv.org']::after,
+a[href*='substack.com']:not([href*=astralcodexten])::after,
+a[href*='scholar.google.com']::after,
+a[href*='plosone.org']::after,
+a[href*='plosmedicine.org']::after,
+a[href*='plos.org']::after,
+a[href*='www.plos']::after,
+a[href*='patreon.com']::after,
+a[href*='uptontea.com']::after,
+a[href*='wired.com']::after,
+a[href*='washingtonpost.com']::after,
+a[href*='nytimes.com']::after,
+a[href*='nlm.nih.gov']::after,
+a[href*='newyorker.com']::after,
+a[href*='theguardian.com']::after,
+a[href*='www.guardian.co.uk']::after,
+a[href*='reddit.com']::after,
+a[href*='paulgraham.com']::after,
+a[href*='ycombinator.com']::after,
+a[href*='intelligence.org']::after,
+a[href*='deepmind']::after,
+a[href*='docs/.*/*.pdf#deepmind']::after,
+a[href*='openai']::after,
+a[href$='.pdf#openai']::after,
+a[href*='distill.pub']::after,
+a[href*='twitter.com']::after,
+a[href*='nitter.cc']::after,
+a[href*='erowid.org']::after,
+a[href*='wikipedia.org']::after,
+a[href*='wikimedia.org']::after,
+a[href*='wiktionary.org']::after,
+a[href*='wikimediafoundation.org']::after,
+a[href*='wikisource.org']::after,
+a[href*='youtube.com']::after,
+a[href*='youtu.be']::after,
+a[href*='soundcloud.com']::after,
+a[href*='bandcamp.com']::after,
+a[href*='overflow.net']::after,
+a[href*='overflow.com']::after,
+a[href*='stackexchange.com']::after,
+a[href*='amazon.com']::after,
+a[href*='amazon.co.']::after,
+a[href*='amzn.com'  ]::after,
+a[href*='github.com']::after,
+a[href*='dropbox.com']::after,
+a[href*='dropboxusercontent.com']::after,
+a[href*='mega.nz']::after,
+a[href*='webcitation.org'   ]::after,
+a[href*='mementoweb.org'    ]::after,
+a[href*='archive.org'       ]::after,
+a[href*='archive-it.org'    ]::after,
+a[href*='archiveteam.org'   ]::after,
+a[href*='waybackmachine.org']::after,
+a.local-archive-link::after,
+a[href*="tumblr.com"]::after,
+a[href*="t.umblr.com"]::after,
+a[href*="#facebook"]::after,
+a[href*="#facebook"][href*="arxiv.org"]::after,
+a[href*='docs/.*/*.pdf#.*facebook']::after,
+a[href*="facebook.com"]::after,
+a[href*="bitcointalk.org"]::after,
+a[href*="bitcoin.it"]::after,
+a[href*="www.google.com"]::after,
+a[href*="#google"]::after,
+a[href*="#org=google"]::after,
+a[href*="#google"][href*="arxiv.org"]::after,
+a[href*="#org=google"][href*="arxiv.org"]::after,
+a[href*='docs/.*/*.pdf#.*google']::after,
+a[href*='docs/.*/*.pdf#org=google']::after {
+    filter: invert(1);
+}
+
+/* Based on: the `friendly_grayscale' and `algol_nu` styles, and tweaked
+ *   after that.
+ *
+ * Tweaks mostly inspired by the stimmung-themes: https://github.com/motform/stimmung-themes
+ */
+
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hll { background-color: #ffffcc }
+.c { color: var(--fg-comment); font-style: italic } /* Comment */
+.err { border: 1px solid #898989 } /* Error */
+.highlight-bqn .err { color: var(--fg); border: none; } /* Ignore errors in BQN, since the parser is not that good */
+.k { font-weight: bold } /* Keyword */
+.o { font-weight: bold }   /* Operator */
+.highlight-bqn     .o { font-weight: normal } /* Operator */
+.highlight-tex     .o { font-weight: normal } /* Operator */
+.highlight-console .o { font-weight: normal } /* Operator */
+.p { } /* Punctuation */
+.highlight-bqn .py { color: var(--fg-bqn-2-mod) }
+.ch { color: var(--fg-comment2); font-style: italic } /* Comment.Hashbang */
+.cm { color: var(--fg-comment2); font-style: italic } /* Comment.Multiline */
+.cp { color: var(--fg-comment2); font-weight: bold } /* Comment.Preproc */
+.cpf { color: var(--fg-comment2); font-style: italic } /* Comment.PreprocFile */
+.c1 { color: var(--fg-comment2); font-style: italic } /* Comment.Single */
+.cs { color: var(--fg-comment2); font-weight: bold } /* Comment.Special */
+.gd { color: #545454 } /* Generic.Deleted */
+.highlight-diff .gd { color: var(--fg-diff-deleted) } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #898989 } /* Generic.Error */
+.gh { color: var(--fg-output); font-weight: bold } /* Generic.Heading */
+.gi { color: #7D7D7D } /* Generic.Inserted */
+.highlight-diff .gi { color: var(--fg-diff-added) } /* Generic.Inserted */
+.go { color: var(--fg-output) } /* Generic.Output */
+.gp { font-weight: bold } /* Generic.Prompt */
+.highlight-console .gp { color: var(--fg-bqn-1-mod); font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: var(--fg-keyword); font-weight: bold } /* Generic.Subheading */
+.gt { color: #6D6D6D } /* Generic.Traceback */
+.kc { color: var(--fg-keyword); font-weight: bold } /* Keyword.Constant */
+.highlight-Python .kc { color: var(--fg-bqn-1-mod) } /* Keyword.Constant */
+.kd { color: var(--fg-keyword); font-weight: bold } /* Keyword.Declaration */
+.highlight-bqn .kd { color: var(--fg-bqn-2-mod); font-weight: bold } /* Keyword.Declaration */
+.kn { color: var(--fg-keyword); font-weight: bold } /* Keyword.Namespace */
+.highlight-Python .kn { color: var(--fg) } /* Keyword.Reserved */
+.kp { color: var(--fg-keyword); font-weight: bold } /* Keyword.Pseudo */
+.kr { font-weight: bold } /* Keyword.Reserved */
+.kt { background-color: var(--bg-code-accent) } /* Keyword.Type */
+.highlight-bqn .kt { color: var(--fg); background-color: var(--bg) } /* Keyword.Type */
+.m { color: var(--fg-output) } /* Literal.Number */
+.s { color: var(--fg-string) } /* Literal.String */
+.na { color: var(--fg-output) } /* Name.Attribute */
+.highlight-bqn .na { color: var(--fg-bqn-1-mod) } /* Name.Attribute */
+.highlight-tex .na { color: var(--fg) } /* Name.Attribute */
+.nb { font-weight: bold } /* Name.Builtin */
+.highlight-Python  .nb { color: var(--fg-bqn-1-mod) } /* Name.Builtin */
+.highlight-tex     .nb { font-weight: normal } /* Name.Builtin */
+.highlight-console .nb { font-weight: normal } /* Name.Builtin */
+.nc { color: var(--fg-nameclass); font-weight: bold } /* Name.Class */
+.no { } /* Name.Constant */
+.nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.ni { color: #848484; font-weight: bold } /* Name.Entity */
+.highlight-bqn .ni { color: var(--fg-bqn-sub) } /* Name.Entity */
+.ne { color: var(--fg-exception) } /* Name.Exception */
+.nf { font-weight: bold   } /* Name.Function */
+.highlight-emacs-lisp .nf { font-weight: normal } /* Name.Function */
+.nl { color: #363636; font-weight: bold } /* Name.Label */
+.nn { background-color: var(--bg-code-accent) } /* Name.Namespace */
+.highlight-Python .nn { background-color: var(--bg) } /* Name.Namespace */
+.nt { color: var(--fg-nametag); font-weight: bold } /* Name.Tag */
+.nv {  } /* Name.Variable */
+.highlight-bqn .nv { color: var(--fg-bqn-sub) } /* Name.Variable */
+.highlight-tex .nv { font-weight: bold } /* Name.Variable */
+.ow { font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: var(--fg-comment) } /* Literal.Number.Bin */
+.mf {  } /* Literal.Number.Float */
+.mh {  } /* Literal.Number.Hex */
+.mi {  } /* Literal.Number.Integer */
+.mo {  } /* Literal.Number.Oct */
+.sa { color: var(--fg-string) } /* Literal.String.Affix */
+.sb { color: var(--fg-string) } /* Literal.String.Backtick */
+.sc { color: var(--fg-string) } /* Literal.String.Char */
+.dl { color: var(--fg-string) } /* Literal.String.Delimiter */
+.sd { color: var(--fg-string);  font-style: italic } /* Literal.String.Doc */
+.s2 { color: var(--fg-string) } /* Literal.String.Double */
+.highlight-bqn    .s2 { color: var(--fg-bqn-string) } /* Literal.String.Double */
+.highlight-Python .s2 { color: var(--fg-bqn-string) } /* Literal.String.Double */
+.se { color: var(--fg-string);  font-weight: bold } /* Literal.String.Escape */
+.sh { color: var(--fg-string) } /* Literal.String.Heredoc */
+.si { color: #9F9F9F } /* Literal.String.Interpol */
+.highlight-Python .si { color: var(--fg) } /* Literal.String.Interpol */
+.sx { color: var(--fg-nameclass) } /* Literal.String.Other */
+.highlight-bqn .sx { color: var(--fg-bqn-string) } /* Literal.String.Other */
+.sr { color: var(--fg-exception) } /* Literal.String.Regex */
+.s1 { color: #717171 } /* Literal.String.Single */
+.highlight-bqn     .s1 { color: var(--fg-bqn-string) } /* Literal.String.Single */
+.highlight-console .s1 { color: var(--fg-bqn-string) } /* Literal.String.Single */
+.ss { color: var(--fg-literal) } /* Literal.String.Symbol */
+.highlight-bqn .ss { color: var(--fg-bqn-string) } /* Literal.String.Symbol */
+.bp { color: var(--fg-exception) } /* Name.Builtin.Pseudo */
+.fm { color: #3F3F3F } /* Name.Function.Magic */
+.vc { color: var(--fg-variable) } /* Name.Variable.Class */
+.vg { color: var(--fg-variable) } /* Name.Variable.Global */
+.vi { color: var(--fg-variable) } /* Name.Variable.Instance */
+.vm { color: var(--fg-variable) } /* Name.Variable.Magic */
+.highlight-Python .vm { color: var(--fg-bqn-1-mod) } /* Name.Variable.Magic */
+.il { color: var(--fg-comment) } /* Literal.Number.Integer.Long */
