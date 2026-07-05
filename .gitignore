@@ -5,6 +5,7 @@
 *.hie
 *.exe
 *.out
+site
 /dist/
 dist-newstyle/
 a-peirogon/
