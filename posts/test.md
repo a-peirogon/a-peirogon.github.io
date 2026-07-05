@@ -1,129 +1,50 @@
 ---
-title: Lorem ipsum
+title: De los pedantes
 date: 2026-01-13
-tags: testing, demo, lorem-ipsum
+toc: true
+toc-depth: 2
 ---
 
-# Introduction to Lorem Ipsum
+## Sobre la pedantería y la falsa modestia
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat[^1].
+Pocas declaraciones podrán hallarse tan opuestas a la pedantería como ésta de Montaigne: «paréceme –afirma– que es harto difícil que nadie se estime menos, e incluso que nadie me estime menos, que yo mismo».[^1] Ahora bien, yo creo que esto es sacar las cosas de quicio. Y hasta tal punto lo veo así, que me cuesta creer que lo diga en serio; aunque, *conociéndole* («Tan sólo se hablar en serio», asegura), no es fácil, tampoco, creer lo contrario. Concedámosle, pues, el beneficio de la duda, y, si embuste, entendámoslo, al cabo, como embuste que no otra cosa es que ardid meramente retórico.
 
-## Code highlighting with pygments
+[^1]: Montaigne, *Ensayos*, III, 9. Esta declaración, tan citada como discutida, ha dado lugar a innumerables interpretaciones. Algunos ven en ella una manifestación genuina de modestia estoica; otros, un elegante ejercicio de ironía retórica. Lo cierto es que Montaigne, como buen escéptico, sabía que la certeza absoluta es incompatible con la sabiduría, y quizá por eso se permitía tales juegos de ambigüedad. El propio autor se describe como "un hombre de condición media, y... que aspira a todo", lo que podría explicar su necesidad de distanciarse irónicamente de sí mismo.
 
-Here's some Haskell:
+Mas no es, en cualquier caso, el objeto de estas líneas someter a Montaigne a una especie de proceso judicial. Mi recuerdo de sus palabras obedece al hecho de que, en lo que a mí se me alcanza, entre la pedantería ostentosa y fatua y el rebajamiento máximo e injustificado de uno mismo, cabe, sin duda, un término medio; término medio en el que también en estos asuntos, como en muchos otros –si es que Aristóteles tenía razón–, se encuentra seguramente la virtud. Yo, al menos, no puedo dar mi asentimiento a ninguno de esos extremos, ni al del pedante ni al de Montaigne: el segundo despierta mi recelo, y el primero, mi repulsión. Y supuesto que la modestia no sea, como hartas veces sucede, más que falsa modestia (y no digo que ése sea el caso de Montaigne), a mí, si forzoso me fuera tener que conceder siquiera un ápice de simpatía mayor a una u otra (a la falsa modestia o a la presunción), no me resultaría fácil inclinarme por cualquiera de ellas. Cierto es que la primera, si no necesariamente mejor desde el punto de vista moral, sí parece, en cambio, menos estúpida, ya que, en efecto, tenerse por cosa excelente, más que un vicio es una necedad. Quien se subestima, no busca, acaso, sino ser estimado; y hablar mal de sí es, no pocas veces, una simple estratagema para forzar a otros a que lo hagan bien; mas con ello denota, al cabo, una cierta inteligencia y alguna habilidad social. Verdad es que el peligro que corre es ser creído; y así, quien hace confesión pública de su ineptitud o de su incompetencia, se arriesga a concitar en torno a sus declaraciones el asentimiento universal.[^2] Mas el pedante, al tiempo que profesión de fe de tontería (sólo un tonto puede gustarse a sí mismo hasta tal punto) y exposición obscena de mente hueca (nadie que tenga algo en ella piensa nunca que es suficiente), pone de relieve un profundo desconocimiento de la naturaleza humana, porque muy pocos se alegran del bien ajeno, y, en consecuencia, se halla expuesto a un riesgo mayor: ser objeto de envidia o de risión, dependiendo de que su supuesta grandeza sea creída o no. A quienes se encuentran satisfechos consigo mismos (y son casi todos), no les supone un gran esfuerzo dar un empujoncito a quien se rebaja, e incluso suelen hallar en ello una cierta satisfacción, porque quien declara, real o fingidamente, sus insuficiencias, permite que se sientan siquiera un peldaño por encima, y nada cuesta entonces, desde esa altura, una palmada en el hombro o una lisonja, toda vez que no es creída por quienes la dispensan, que se ven a sí mismos como caritativos benefactores y solidarios con el pobre infeliz a quien la naturaleza a negado las exquisitas prendan que a ellos adornan. Ese es el juego que el astuto ladino, investido de falsa modestia, sabe jugar para alcanzar, en ocasiones, importantes prebendas. Con la pedantería, en cambio, no se llega muy lejos: si te creen, intentarán retirarte la escalera; y si no te creen, serás el hazmerreír.
 
-```haskell
--- Factorial function
-factorial :: Integer -> Integer
-factorial 0 = 1
-factorial n = n * factorial (n - 1)
+[^2]: Este es, precisamente, el riesgo que corren quienes se presentan como víctimas de sus propias limitaciones. El elogio que buscan se convierte con demasiada frecuencia en lástima, o lo que es peor, en confirmación de su ineptitud. No es infrecuente que quien se declara incompetente acabe por ser tratado como tal, lo que convierte su estrategia inicial en una profecía autocumplida. La falsa modestia, bien mirada, no es sino un modo de pedantería invertida: mientras el pedante proclama su grandeza, el falsamente modesto proclama su pequeñez, pero ambos buscan lo mismo: ser el centro de atención. La diferencia estriba en que el primero lo hace de forma ostensible, el segundo, de manera subrepticia.
 
--- QuickSort implementation
-quicksort :: Ord a => [a] -> [a]
-quicksort [] = []
-quicksort (x:xs) = quicksort smaller ++ [x] ++ quicksort larger
-  where
-    smaller = [a | a <- xs, a <= x]
-    larger  = [b | b <- xs, b > x]
-```
+Decía Francis Bacon que al igual que de la calumnia siempre *queda algo,* lo mismo sucede con la alabanza de uno mismo. No dudo de la verdad de lo primero: «cuando el río suena, agua lleva» –sospecha la gente–, «cuando se dice, será por algo». Y así, tras la calumnia permanece siempre un rastro imborrable e imperecedero, y es por eso uno de los atentados morales más fuertes que se pueden perpetrar contra un ser humano. Pero que otro tanto suceda con la autoalabanza, lo encuentro más discutible. Sin duda que quien se adorna acabará por dar con alguien que le crea adornado, porque siempre se encuentra a alguien dispuesto a creer cualquier cosa («El mundo –como decía Cicerón– está lleno de majaderos»), pero, hablando en general, tengo la impresión de que el autobombo no deja tras de sí más que la indignación o el menosprecio. Y aun aquel grupito de fieles devotos del pedante, que le consideran suma de perfecciones y compendio de grandezas, no hacen que el *oficio* de éste sea más llevadero, porque cada día le exigirán una excelencia mayor, o por lo menos alguna grandiosa novedad; y, al fin, la existencia de nuestro pedante no será sino un continuo vivir para agradar e impresionar a los ya convencidos, o un permanente actuar para captar nuevos adeptos. La falsa modestia, sabiamente administrada, puede hacernos, bien que muy ocasionalmente, dueños del prójimo, pero la pedantería nos hace siempre su esclavo. Acaso por esto afirmaba Gracián que: «Débese a todos el que se paga de sí mismo».
 
-## Mathematical expressions
+## 2
 
-Testing inline math: $E = mc^2$ and the quadratic formula $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+Ahora bien, si de lo anterior alguien concluye que es mi intención hacer una apología de la falsa modestia (siquiera sea frente a la presunción), se equivoca (ya he señalado al principio que no resulta sencillo decantarse por una u otra. Ni tenemos por qué hacerlo, por supuesto). Quería únicamente subrayar que la primera es, con toda seguridad, menos necia y probablemente también más provechosa que la segunda, pero nada de esto tiene que ver con su calidad moral. Es más, me atrevería a decir que si la presunción es más necia, la falsa modestia es más viciosa e inmoral, porque va acompañada siempre de la mentira: es, en suma, una impostura indecente con la que frecuentemente no otra cosa se busca que engañar al prójimo y manejarle. Con lo que, al cabo, me veo obligado a discrepar del juicio de Chamfort, para quien: «La falsa modestia es la más decente de todas las mentiras».[^3] No digo yo que no haya otras mentiras dotadas de una indecencia mayor, pero la que la falsa modestia encierra ni es pequeña ni disculpable.
 
-Display math:
+[^3]: Chamfort, *Máximas y pensamientos*, nº 167. El aforismo completo reza: "La falsa modestia es la más decente de todas las mentiras, porque es la que menos pretende engañar." Nótese que Chamfort, cínico y desengañado, encontraba en esta forma de engaño cierta elegancia que la distinguía de la mentira más burda. Sin embargo, conviene recordar que el propio Chamfort, hombre de mundo y de salones, sabía bien de los juegos de la hipocresía social. La pregunta que cabe hacerse es si el hecho de que una mentira sea "decente" la hace menos mentira, o si, por el contrario, su decoro no hace sino hacerla más peligrosa, al resultar más difícil de detectar.
 
-$$
-\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-$$
+No estaría, pues, tan seguro que sea preferible pecar de modesto (entiéndase: de falsa modestia) que de pedante. Frecuentemente, el pedante no es más que un tonto que se cree excelente de veras (con lo que es culpable de estupidez, mas no de mentira), y, casi con la misma frecuencia, quien aparenta una falsa modestia se tiene por igualmente excelente, pero ha descubierto que suele resultar más provechoso hacerse pasar por tonto. Claro que, a veces, lo es, en efecto, y entonces su falsa modestia no es ocultación, sino fiel autorretrato, aunque él no lo sepa, y por eso, aun en ese caso, su engaño no es menor ni su culpa más tenue. Y paralelamente, pudiera suceder que en ocasiones alguien presuma de lo que realmente tiene, y eso tampoco le haría menos estúpido, porque un grado se satisfacción tal como uno mismo, sólo puede alcanzarse en brazos de la tontería. Quien se denigra falsamente, es un inmoral (y si lo hace sinceramente, entonces es un pusilánime y no menos inmoral, pero esta vez porque falta al mínimo respeto que se debe a si mismo), y quien presume es siempre un imbécil (tanto si tiene lo que dice tener como si no. Y ni siquiera me atrevería a decir yo que su bobería es mayor en el segundo caso que en el primero).
 
-Another example:
+A mí me parece que tampoco es aspiración tan utópica el pretender alcanzar un cierto conocimiento de uno mismo, en el que se incluyan tanto nuestras aptitudes como nuestras insuficiencias, y que ni hay por qué alardear permanentemente de las primeras ni pasarse la vida pidiendo perdón por las segundas. Y así como no existe motivo alguno para pensar que la historia de la humanidad no es sino nuestra prehistoria, precedente y preparación de nuestra llegada y apoteosis, tampoco hay por qué considerar enteramente aborrecible la idea de tener que pasar la vida con nosotros mismos. Mostrémonos como somos, sin caer en la ingenuidad de pensar que, por ello, todo ha de ser dicho y todo expuesto, y que cada cual nos aprecie o no, según su gusto, que, como decía Mateo Alemán: «Váyase dicho, que siempre voy hablando con el uso de mi aldea; que yo no sé cómo baila en la suya cada uno».
 
-$$
-\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}
-$$
+Y todo esto significa, al mismo tiempo, que ni siquiera es preciso optar entre alardear de nuestras virtudes u ocultarlas. «Valer y saberlo mostrar es valer dos veces: lo que no se ve es como si no fuese», afirma Gracián. Ciertamente. De poco le vale a alguien ser muy inteligente si no lo sabe nadie. ¡Pobres de nosotros, como a los grandes individuos que nos han precedido su modestia les hubiera empujado al extremo de ocultar sus obras! Para huir de la presunción no es preciso caer en el apocamiento. Cada uno tiene las aptitudes y capacidades que tiene (ya decía Homero que «los dioses no otorgan a los humanos todo a la vez»), y desarrollarlas, incluso hasta el punto de obligar a que sean reconocidas por otros, no es sólo un derecho, sino seguramente también un deber. Dejémonos, pues, de modestias ridículas: tanto se engaña quien se menosprecia como quien se sobrevalora, y tan necio es quien oculta y niega lo que tiene como quien presume de lo que le falta. Y dejémonos, por supuesto, de falsas modestias: tampoco es menester alejarnos de la presunción recalando en la mezquindad.
 
-## TikZ diagram test
+## 3
 
-Here's a simple TikZ diagram:
+Más adviértase bien que si damos un paso más allá de lo que es un justo y natural reconocimiento de aquello que de apreciable pueda haber en nosotros; si somos lo suficientemente mentecatos como para no advertir que por mucho que tengamos, aún carecemos de más; si nos entregamos a un permanente cántico y exageración de nuestras virtudes, y, en general, si no somos lo bastante conscientes como para caer en la cuenta de que tanto el dictado de la inteligencia como el de la elegancia y las buenas costumbres, nos obligan a guardar silencio respecto a nuestras aptitudes (no ocultarlas no es lo mismo que declararlas), entonces estamos arribando al puerto de la presunción, e ingresando, por derecho propio, en uno de los grupos más estúpidos y risibles en los que se divide el género humano: el de los pedantes.
 
-```tikzpicture
-\begin{tikzpicture}
-  \draw[->] (0,0) -- (4,0) node[right] {$x$};
-  \draw[->] (0,0) -- (0,3) node[above] {$y$};
-  \draw[domain=0:3.5,smooth,variable=\x,blue,thick] plot ({\x},{0.5*\x*\x});
-  \node at (2,2.5) {$y = \frac{1}{2}x^2$};
-\end{tikzpicture}
-```
+Las modalidades de la pedantería son casi infinitas, porque apenas hay actividad u ocupación humana que no disponga de sus propios profesionales en el arte de presumir. Creo, sin embargo, que todas esas variedades tienen algo en común: de lo que se alardea, en último término, es de algún tipo de *saber* (aunque sea un *saber hacer*). Y acaso por eso no hay pedante más característico que aquél que lo es respecto al saber mismo, aquél que sienta plaza de erudito y poseedor de conocimientos tan vastos como profundos. Tales sujetos son auténticamente ridículos, y decir de ellos que son tontos (que lo son), es decir poco, porque, como observaba Napoleón: «Los tontos no pasan de ser aburridos, los pedantes son insoportables».
 
-## Lists and structure
+Sin duda, eso es cierto, y lo es, asimismo, todo lo que se pueda decir, no ya acerca de lo insoportable de tales individuos, sino también de su afectación, de su inoportunidad y de su entrometimiento general y continuo: a buen seguro que cada uno de ellos compendia en sí mismo todo un tratado de estupidez y mal gusto. Mas quedarnos aquí, no es sino permanecer en la superficie del asunto y revolotear en torno a los aspectos más llamativos, sí, pero también más aparentes del pedante. Y digo esto, entre otras cosas, porque los pedantes no sólo difieren según los distintos asuntos de los que presumen, sino también según las distintas personas ante las que presumen. Algunos son selectos, y lo hacen únicamente ante un grupo definido de individuos: aquéllos de los que tienen la certeza de que no se hallan en condiciones de desenmascararlos. Frente a tal auditorio, poco exigente y fácil de convencer, despliegan toda su fatuidad y dan rienda suelta a su anhelo de admiración, sin que resulte infrecuente que, con independencia del puro halago, su puesta en escena persiga, además, algún beneficio a lograr a costa del ingenuo y del incauto que le miran arrobados. Esta es, sin duda alguna, la especie más miserable de pedante; y en ella seguramente pensaba Goethe cuando afirmaba que: «Hay pedantes que además son pícaros, y esos son los peores». Es obvio que son los peores, pero no los más genuinos, porque el pedante auténtico, el pedante en estado puro, no es tanto pícaro como tonto, y éste es el que es pedante en general, el pedante –diríamos– *urbi et orbe*: aquél cuyo afán de lucimiento es necesidad tan compulsiva que no tiene tiempo que perder en consideraciones relativas a la condición de quien ha elegido como espectador, y así no será extraño que lo topemos sentando cátedra de docto y entendido en no importa que asunto ante un profesional del ramo. Tenía razón Montaigne cuando decía de tales sujetos que: «Lo corriente es que se hallen exentos hasta de sentido común». Quien presume de lo que sabe es un pedante, quien lo hace de lo que sabe (poco o mucho) ante quien sabe menos es un miserable o un pícaro, pero presumir de lo que no se sabe ante quien sabe más es el triple salto mortal de la memez.
 
-### Unordered list
+Pero más allá de estas consideraciones, con independencia de a quién va dirigida, y con independencia, también, de cuánto de aquello de lo que se presume se posee realmente, ¿a qué obedece la pedantería misma? Yo creo que es obvio que no nace sino de la propia insuficiencia y pequeñez, y que es un mecanismo mediante el que intentar paliarlas. Pero lo más curioso es que, buscando ocultarlas y compensarlas, lo único que se consigue, empero, es hacerlas conocidas y manifiestas: la pedantería es –me hallo firmemente persuadido de ello– una declaración pública de insignificancia. Nadie necesita pregonar aquellas virtudes o capacidades que le son reconocidas por todos, y, por tanto, ni necesita subrayarlas ni hacer alarde de ellas. En consecuencia, y por lo mismo, cabe sospechar que quien presume de algo suele ser deficitario en eso mismo de lo que hace alarde. Sin duda, tiene razón Schopenhauer: «El hecho de afectar una cualidad, es una confesión de que no se posee –afirma– \[...\] porque el que posee real y completamente una cualidad, no piensa en exhibirla ni afectarla: está perfectamente tranquilo bajo este respecto». Como advierte un refrán español (recordado por el filósofo alemán): «Herradura que chacolotea, clavo que le falta». O como señala otro (tal vez más conocido, pero también más prosaico): «Dime de qué presumes y te diré de qué careces». Y si se diera el caso (que alguna vez se dará) de que alguien presume de algo que realmente posee, téngase la seguridad de que con ello lo que se hace es intentar ocultar alguna deficiencia de otro tipo: la pedantería es siempre una de las formas que adopta el sentimiento de inferioridad.
 
-- Lorem ipsum dolor sit amet
-- Consectetur adipiscing elit
-  - Nested item one
-  - Nested item two
-- Sed do eiusmod tempor incididunt
+Por lo demás (y me parece que esto no admite excepción), quien hace alarde de sabiduría (acaso, como ya he señalado, el ámbito por excelencia del pedante), pone de manifiesto cuán lejos, en realidad, se encuentra de ella. Saber significa, ante todo, cobrar conciencia de lo que aún se desconoce, y por ello sólo un ignorante puede ser presuntuoso. Como señalaba Petrarca: «Creerse sabio es el primer eslabón hacia la necedad, y el segundo es afirmarlo». Quien aumenta su conocimiento, aumenta su ignorancia, porque no hace sino descubrir nuevas lagunas, cada vez más vastas, en su saber; de ahí que el sentimiento que acompaña a quien realmente sabe no puede ser nunca la satisfacción, sino el descontento; y, por eso, antes se mostrará temeroso de que se descubra lo mucho que ignora que de alardear de lo poco que sabe. «La sabiduría toda –decía Cicerón– consiste únicamente en no pensar que se sabe lo que se ignora». Y cabría añadir que, de algún modo, consiste también en saber que se ignora infinitamente más de lo que se sabe.
 
-### Ordered list
+Mas «los pedantes –como observaba Montaigne– pellizcan la ciencia en los libros, colocándola como en los labios para presumir y lanzarla luego al viento». Y con ello se sienten plenamente satisfechos consigo mismos, y desde la cúspide del saber en la que se ven colocados dispensan miradas de soslayo al pobre vulgo ignorante que (sospechan) les mira con arrobo. Pocas estampas tan nítidas de la insignificancia y la idiotez le será dado contemplar al escudriñador de la naturaleza humana. Y cuando tales sujetos, a su condición de pedantes añaden, además, la de eruditos (maridaje éste no del todo raro ni infrecuente), los veréis bracear en medio de un mar de datos y noticias (irrelevantes las más de las veces, y, llegado el caso, fáciles de hallar, cuando se necesiten, en cualquier Diccionario o Enciclopedia, sin que pague el precio llenar la mente con tales naderías), pero en vano buscaréis entre ese maremagnum de nombres y de fechas una sola idea propia. Rellenan con pensamientos ajenos el vacío insondable de su espíritu, que más parece desván o vertedero, lleno de trastos inservibles y almacenados, con frecuencia, sin orden ni concierto; pero si, con independencia de lo que dice éste o el otro sobre tal o cual cuestión, les preguntáis que opinan ellos de eso mismo, veréis dibujarse en su rostro el desconcierto: tan ocupados han estado que no han tenido tiempo de pensar en ello. Y sin embargo, pese a que tan vana erudición pone de relieve su incapacidad y su torpeza, los veréis posar de sabios y refinados, cuando es lo cierto que no pasan de ser simples pedantes, aunque eso sí, con algún fundamento *in re,* porque es lo cierto que, después de todo, saben cosas: un erudito no es más que un pedante con conocimiento de causa.
 
-1. First important point about lorem ipsum
-2. Second crucial observation
-3. Third significant detail
-   1. Sub-point alpha
-   2. Sub-point beta
-4. Fourth and final consideration
+Conocí (y no es broma) a un pobre hombre que decidió ilustrarse, y de paso ilustrar a su señora, leyendo juntos un Diccionario Enciclopédico (por orden alfabético, naturalmente, y comenzando por la primera palabra). Ignoro a qué letra había llegado cuando le sorprendió la muerte (continúa sin ser broma: tal estudio lo emprendió ya de mayor), pero de lo estudiado podía impartir lección magistral y cualificada; y así, era capaz de explicar puntualmente qué es un *agüío* o que significa *alaroz,* mas que nadie le preguntara qué es un *tridente,* si no había llegado aún a la T. El asunto no es tan risible ni tan estrambótico como pudiera parecer a simple vista: más de uno hay así que ha logrado escalar elevados puestos académicos. Erudito de los doce temas de la materia que imparte, no le preguntéis fuera de ahí, que aún no ha llegado a la T. E incluso en aquellos asuntos de su competencia, vano será que esperéis el destello de un solo pensamiento original, porque no lo hay: no ha tenido tiempo de pensar en ello. Claro que también es verdad que hoy ni siquiera se necesita ser erudito para llegar lejos en la vida académica.
 
-## Block quotes
+A mí parece, como decía al principio, que entre la pedantería presuntuosa y la modestia extrema (nada diré ya de la falsa, que no es sino una forma de presunción, aunque más miserable aún que ésta) cabe un término medio. Tenía razón Séneca al prevenir a Lucilio que «no hagas cosas en forma que aparezcan ostensibles a los demás en tú exterior o en el género de tu vida, a manera de aquéllos que lo que desean no es aprovechar, sino ser vistos». Pero que no haya que vivir para exhibirse no significa que tengamos que ocultarnos siempre. No debemos alardear de nuestras virtudes, pero tampoco avergonzarnos de ellas, porque si es necio quien se adorna para llamar la atención, también lo es quien se camufla para pasar desapercibido.
 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
->
-> — Marcus Tullius Cicero
-
-## Tables
-
-| Language | Paradigm | Type System |
-|----------|----------|-------------|
-| Haskell  | Functional | Static, Strong |
-| Python   | Multi-paradigm | Dynamic, Strong |
-| C        | Procedural | Static, Weak |
-| JavaScript | Multi-paradigm | Dynamic, Weak |
-
-## More complex TikZ
-
-```tikzpicture
-\begin{tikzpicture}[node distance=2cm]
-  \node[circle,draw] (A) {A};
-  \node[circle,draw] (B) [right of=A] {B};
-  \node[circle,draw] (C) [below of=A] {C};
-  \node[circle,draw] (D) [right of=C] {D};
-  
-  \draw[->] (A) -- (B);
-  \draw[->] (A) -- (C);
-  \draw[->] (B) -- (D);
-  \draw[->] (C) -- (D);
-\end{tikzpicture}
-```
-
-## Emphasis and formatting
-
-This is *italic text* and this is **bold text**. We can also combine ***both italic and bold***.
-
-Here's some `inline code` within a sentence.
-
-## Footnotes
-
-This sentence has a footnote[^2]. And this one has another[^3].
-
-## Conclusion
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
----
-
-[^1]: This is the first footnote with some additional context about Lorem Ipsum being placeholder text since the 1500s.
-
-[^2]: Footnotes are automatically numbered and linked.
-
-[^3]: They appear at the bottom of the page in the rendered version.
+Tratemos, en lo posible, de alcanzar un adecuado conocimiento de nosotros mismos, en el que se incluyan tanto nuestras debilidades y deficiencias como nuestras aptitudes, y vivamos pensando que ni las primeras nos hacen completamente despreciables, porque a nadie se le exige ser perfecto, ni las segundas excelentes, porque por mucho que sea lo que tenemos, siempre será mucho más lo que nos falta.
