@@ -1606,7 +1606,7 @@ footer {
   #layout {
   flex-direction: row;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
   // max-width: none;
   }
   #sidebar {
@@ -1657,7 +1657,7 @@ footer {
     padding: 2em 6ch 2em 0.5ch;
   }
   #layout {
-  gap: 3rem;
+  gap: 1.5rem;
   }
   #sidebar {
   width: 20ch;

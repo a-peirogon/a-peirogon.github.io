@@ -1,0 +1,394 @@
+.wiki-welcome-img-frame {
+  display: inline-block;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  margin: 0 0 2em 0;
+}
+
+.wiki-welcome-img-frame img {
+  display: block;
+  width: 280px;
+  height: auto;
+}
+
+@media (max-width: 400px) {
+  .wiki-welcome-img-frame {
+    max-width: 90vw;
+  }
+  .wiki-welcome-img-frame img {
+    width: 100%;
+  }
+}
+
+.sidebar-block {
+  margin-top: 1.4em;
+}
+
+.sidebar-block-title {
+  font-variant: small-caps;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  color: var(--GW-body-text-color, #e8e8e8);
+  opacity: 1;
+  margin-bottom: 0.35em;
+}
+
+.sidebar-block-flow {
+  font-variant: normal;
+  font-size: 0.78em;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#sidebar .sidebar-block-flow a {
+  display: inline;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-variant: normal;
+  text-transform: none;
+  color: var(--GW-body-link-color, #b8b8b8);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+#sidebar .sidebar-block-flow a:hover {
+  color: var(--GW-body-link-hover-color, #d4d4d4);
+}
+
+#sidebar .sidebar-obra-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+}
+
+.sidebar-obra-img {
+  display: block;
+  width: 100%;
+  max-width: 130px;
+  height: auto;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+}
+
+#sidebar .sidebar-obra-caption {
+  font-variant: normal;
+  text-transform: none;
+  font-size: 0.7em;
+  opacity: 0.7;
+  margin-top: 0.35em;
+  text-align: center;
+}
+
+@media only screen and (min-width: 65ch) {
+  #sidebar {
+    width: 130px !important;
+  }
+}
+
+body.wikiConcept #markdownBody > p:first-of-type::first-letter {
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+body.wikiConcept #markdownBody li,
+body.wikiConcept #markdownBody p {
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+body.wikiConcept #markdownBody {
+  font-size: 0.9em;
+}
+
+.wiki-cat-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.wiki-cat-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+
+.wiki-cat-count {
+  font-size: 0.75em;
+  opacity: 0.6;
+  letter-spacing: 0.04em;
+  margin-top: 0.3em;
+}
+
+.wiki-cat-intro {
+  margin: 1.2em 0;
+}
+
+.wiki-cat-entries-title,
+.wiki-cat-subcats .wiki-cat-entries-title {
+  font-variant: small-caps;
+  font-size: 0.85em;
+  opacity: 0.7;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.wiki-cat-entries-list {
+  list-style: none;
+  margin: 0 0 1.5em 0;
+  padding: 0;
+}
+
+.wiki-cat-entries-list li {
+  margin: 0 0 0.4em 0;
+}
+
+.wiki-cat-entries-list a {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.portal-box {
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  margin: 0 0 1em;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portal-box-title {
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #111;
+  background: var(--portal-box-color, #c8b88a);
+  padding: 7px 14px;
+}
+
+.portal-box-body {
+  padding: 12px 16px;
+  font-size: 0.92em;
+  line-height: 1.7;
+}
+
+.portal-box-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.portal-box-body p:last-child {
+  margin-bottom: 0;
+}
+
+.portal-box-body ul,
+.portal-box-body ol {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.portal-box-body li {
+  margin-bottom: 0.35em;
+}
+
+.portal-box-body a {
+  color: var(--GW-body-link-color, #b8b8b8);
+}
+
+.wiki-welcome-desc {
+  max-width: 640px;
+  font-size: 0.88em;
+  line-height: 1.6;
+  margin: 0 0 1.8em 0;
+}
+
+.wiki-welcome-desc p {
+  margin: 0 0 0.8em 0;
+}
+
+.wiki-welcome-desc a {
+  color: var(--GW-body-link-color, #b8b8b8);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5em 0;
+}
+
+.meta-table tr {
+  border-bottom: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+}
+
+.meta-table tr:last-child {
+  border-bottom: none;
+}
+
+.meta-table td {
+  padding: 8px 20px 8px 0;
+  vertical-align: top;
+  line-height: 1.55;
+  font-size: 0.92em;
+}
+
+.meta-label {
+  width: 120px;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.85em;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.meta-value {
+  color: inherit;
+}
+
+.meta-value a {
+  color: var(--GW-body-link-color, #b8b8b8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+.meta-value a:hover {
+  opacity: 0.8;
+}
+.sidenote img {
+  max-width: 100%;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.sidenote figcaption {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.footnotes-details {
+  margin-top: 2em;
+}
+
+.footnotes-details summary {
+  cursor: pointer;
+  font-variant: small-caps;
+  font-size: 0.85em;
+  opacity: 0.6;
+  letter-spacing: 0.02em;
+}
+
+.footnotes-details summary:hover {
+  opacity: 0.85;
+}
+
+.footnotes-details[open] summary {
+  margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 130.1ch) {
+  #markdownBody {
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 64.9ch) {
+  #sidebar-lecturas,
+  #sidebar-obra {
+    display: none;
+  }
+}
+
+.wiki-cat-title {
+  line-height: 1;
+  /*! margin: 1em 0 0.375em 0; */
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.6em;
+  box-shadow: 0 -2px 0 0 var(--GW-H1-box-shadow-background-color) inset,
+  0 -3px 0 0 var(--GW-H1-box-shadow-line-color) inset;
+  font-style: normal;
+}
+
+@media only screen and (min-width: 650px) {
+  .wiki-cat-title {
+    font-size: 2em;
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+    box-shadow: 0 -5px 5px 0 var(--GW-H1-box-shadow-background-color) inset, 0 -6px 0 0 var(--GW-H1-box-shadow-line-color) inset;
+    text-transform: uppercase;
+  }
+}
+
+#popupdiv > div {
+  background-color: var(--GW-body-background-color, #0d0d0d) !important;
+  color: var(--GW-body-text-color, #e8e8e8) !important;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a) !important;
+}
+
+#popupdiv > div a {
+  color: var(--GW-body-link-color, #b8b8b8);
+}
+
+#popupdiv > div::-webkit-scrollbar-thumb {
+  background-color: #4a4a4a;
+  box-shadow: 0 0 0 3px var(--GW-body-background-color, #0d0d0d) inset;
+}
+
+#popupdiv > div::-webkit-scrollbar-thumb:hover {
+  background-color: #6a6a6a;
+}
+
+:root {
+  --accent-terminal: #00ff41;
+  --accent-terminal-dim: rgba(0, 255, 65, 0.35);
+}
+
+#markdownBody a:hover,
+.sidebar-block-flow a:hover,
+.meta-value a:hover {
+  color: var(--accent-terminal);
+  text-shadow: 0 0 6px var(--accent-terminal-dim);
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.sidenote {
+  transition: box-shadow 0.15s ease;
+}
+
+.sidenote:hover,
+.sidenote:target,
+.sidenote.highlighted {
+  box-shadow: -2px 0 0 0 var(--accent-terminal);
+}
+
+.footnotes-details summary:hover {
+  color: var(--accent-terminal);
+  text-shadow: 0 0 4px var(--accent-terminal-dim);
+}
+
+.wiki-cat-count,
+.meta-label {
+  font-family: 'Hopf Mono', monospace;
+  letter-spacing: 0.03em;
+}
+
+.meta-label {
+  font-variant: normal;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
