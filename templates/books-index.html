@@ -1,0 +1,19 @@
+<section id="books-index">
+  <p class="no-cap">
+    Registro de lecturas: sinopsis u otras notas no exhaustivas.
+  </p>
+
+  $for(years)$
+  <section class="recent-posts">
+    <h1>$year$</h1>
+
+    <ul class="post-list">
+    $for(posts)$
+        <li>
+            <a href="$url$">$title$</a>
+        </li>
+    $endfor$
+    </ul>
+  </section>
+  $endfor$
+</section>

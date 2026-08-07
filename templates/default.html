@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/css/icons.css">
+  <link rel="stylesheet" href="/css/wiki.css">
 
   <link rel="preload" href="/fonts/crimson/crimson-roman-webfont.woff"
         as="font" type="font/woff" crossorigin>
@@ -44,12 +45,10 @@
             ],
             throwOnError: false
         });
-        console.log("KaTeX renderizado ejecutado");
     });
   </script>
 
   <script src="//instant.page/5.1.0" type="module"></script>
-  <script src="/js/helper.js"></script>
 </head>
 
 <body$if(bodyclass)$ class="$bodyclass$"$endif$>
@@ -64,17 +63,10 @@
         </a>
 
         <nav id="site-nav">
-          <a class="site" href="/about.html">About</a>
-          <a class="site" href="/research.html">Research</a>
-
+          <a class="site" href="/">Ensayos</a>
+          <a class="site" href="/wiki/index.html">> Wiki</a>
+          <a class="site" href="/books.html">Lecturas</a>
         </nav>
-
-<!--        $if(toc)$
-        <nav id="toc-sidebar" aria-label="Table of contents">
-          <h3>Contenido</h3>
-          $toc$
-        </nav>
-        $endif$-->
 
       </div>
     </aside>
@@ -126,12 +118,11 @@
 
   </div>
 
-  <script src="https://mynd.neocities.org/js/jquery-1.7.1.min.js"></script>
-  <script src="https://mynd.neocities.org/js/scale.fix.js"></script>
-  <script src="https://mynd.neocities.org/js/anchors.js"></script>
-  <script src="https://mynd.neocities.org/js/sidenotes.js"></script>
-  <script src="https://mynd.neocities.org/js/footnotes.js"></script>
-  <script src="https://mynd.neocities.org/js/fix-footnotes.js"></script>
+  <script src="/js/scale.fix.js"></script>
+  <script src="/js/sidenotes.js"></script>
+  <script src="/js/footnotes.js"></script>
+  <script src="/js/fix-footnotes.js"></script>
+  <script src="/js/wikipedia-popups.js"></script>
 </body>
 
 </html>

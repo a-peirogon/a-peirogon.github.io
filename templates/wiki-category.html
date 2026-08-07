@@ -1,0 +1,35 @@
+<header class="wiki-cat-header">
+  <div class="wiki-cat-title-row">
+    $if(has_wiki_icon)$
+    <img class="wiki-cat-icon" src="$wiki_icon$" alt="">
+    $endif$
+    <h1 class="wiki-cat-title">$wiki_label$</h1>
+  </div>
+  <div class="wiki-cat-count">$wiki_entry_count$ entradas</div>
+</header>
+
+<div class="wiki-cat-intro">
+$body$
+</div>
+
+$if(wiki_direct_conceptos)$
+<section class="wiki-cat-entries">
+  <div class="wiki-cat-entries-title">entradas</div>
+  <ul class="wiki-cat-entries-list">
+    $for(wiki_direct_conceptos)$
+    <li><a href="$url$">$title$</a></li>
+    $endfor$
+  </ul>
+</section>
+$endif$
+
+$if(wiki_direct_subcategorias)$
+<section class="wiki-cat-subcats">
+  <div class="wiki-cat-entries-title">subcategorías</div>
+  <ul class="wiki-cat-entries-list">
+    $for(wiki_direct_subcategorias)$
+    <li><a href="$url$">$label$</a></li>
+    $endfor$
+  </ul>
+</section>
+$endif$

@@ -1,0 +1,19 @@
+<section id="wiki-index">
+  $if(wiki_welcome_html)$
+  <div class="wiki-welcome-desc">
+$wiki_welcome_html$
+  </div>
+  $endif$
+
+  <section class="recent-posts">
+    <h1>Áreas</h1>
+
+    <ul class="post-list">
+    $for(roots)$
+        <li>
+            <a href="$url$">$label$</a>
+        </li>
+    $endfor$
+    </ul>
+  </section>
+</section>
