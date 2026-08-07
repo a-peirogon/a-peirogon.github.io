@@ -57,7 +57,7 @@
             echo "   - LaTeX/TikZ:     Detectado"
             echo "=========================================="
             echo "Para compilar rápido usa:"
-            echo "  ghc --make site.hs && ./site build"
+            echo "  ghc --make site.hs -isrc && ./site build"
           '';
         };
       }
