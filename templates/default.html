@@ -5,28 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>$if(title)$$title$$else$Mi Sitio$endif$</title>
+  <title>$if(title)$$title$ · a-peirogon$else$a-peirogon$endif$</title>
   <meta name="description"
-        content="$if(description)$$description$$else$Sitio personal$endif$">
+        content="$if(description)$$description$$else$a-peirogon: mathematics, linguistics, philosophy, computer science$endif$">
   $if(author)$<meta name="author" content="$author$">$endif$
   $if(keywords)$<meta name="keywords" content="$keywords$">$endif$
 
   <link rel="alternate" type="application/atom+xml"
-        title="Site Feed" href="/feed.xml">
+        title="a-peirogon" href="/feed.xml">
 
-  <link rel="stylesheet" href="/css/dark-mode.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/icons.css">
-  <link rel="stylesheet" href="/css/wiki.css">
+  <link rel="stylesheet" href="/css/main.css?v=10">
+  <link rel="stylesheet" href="/css/wiki.css?v=10">
 
-  <link rel="preload" href="/fonts/crimson/crimson-roman-webfont.woff"
+  <link rel="preload" href="/fonts/crimson-roman-webfont.woff"
         as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="/fonts/crimson/crimson-italic-webfont.woff"
+  <link rel="preload" href="/fonts/crimson-italic-webfont.woff"
         as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="/fonts/crimson/crimson-semibold-webfont.woff"
+  <link rel="preload" href="/fonts/crimson-semibold-webfont.woff"
         as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="/fonts/crimson/crimson-bold-webfont.woff"
+  <link rel="preload" href="/fonts/crimson-bold-webfont.woff"
         as="font" type="font/woff" crossorigin>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
@@ -48,7 +45,7 @@
     });
   </script>
 
-  <script src="//instant.page/5.1.0" type="module"></script>
+  <script src="/js/instantpage-5.1.0.js" type="module"></script>
 </head>
 
 <body$if(bodyclass)$ class="$bodyclass$"$endif$>
@@ -63,9 +60,9 @@
         </a>
 
         <nav id="site-nav">
-          <a class="site" href="/">Ensayos</a>
-          <a class="site" href="/wiki/index.html">> Wiki</a>
-          <a class="site" href="/books.html">Lecturas</a>
+          <a class="site" href="/wiki/index.html">Wiki</a>
+          <a class="site" href="/books.html">Books</a>
+          <a class="site" href="/about.html">About</a>
         </nav>
 
       </div>
@@ -110,7 +107,7 @@
         <nav>
           <a href="/feed.xml" aria-label="RSS Feed">RSS</a>
           <span class="separator">|</span>
-          <span>Website source: <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+          <span>Website source: <a href="https://github.com/a-peirogon/a-peirogon.github.io" target="_blank" rel="noopener noreferrer">GitHub</a></span>
         </nav>
                 <p style="margin-top:0;text-align:right">Everything on this website—<a style="color:#999" href="https://en.wikipedia.org/wiki/Dash#Em_dash">em dash</a> and all—was created by a human</p>
       </footer>
@@ -123,6 +120,7 @@
   <script src="/js/footnotes.js"></script>
   <script src="/js/fix-footnotes.js"></script>
   <script src="/js/wikipedia-popups.js"></script>
+  <script src="/js/portal-box.js"></script>
 </body>
 
 </html>

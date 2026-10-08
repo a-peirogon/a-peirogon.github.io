@@ -1,17 +1,22 @@
 <section id="books-index">
-  <p class="no-cap">
-    Registro de lecturas: sinopsis u otras notas no exhaustivas.
-  </p>
-
   $for(years)$
-  <section class="recent-posts">
-    <h1>$year$</h1>
+  <section class="shelf-year">
+    $if(year)$<h1>$year$</h1>$endif$
 
-    <ul class="post-list">
+    <ul class="shelf">
     $for(posts)$
-        <li>
-            <a href="$url$">$title$</a>
-        </li>
+      <li class="shelf-book">
+        $if(portada)$
+        <img class="shelf-cover" src="$portada$" alt="Portada de $title$" loading="lazy">
+        $else$
+        <span class="shelf-cover shelf-cover-blank" aria-hidden="true">
+          <span class="shelf-blank-title">$title$</span>
+          $if(autor)$<span class="shelf-blank-author">$autor$</span>$endif$
+        </span>
+        $endif$
+        <span class="shelf-title">$title$</span>
+        $if(autor)$<span class="shelf-author">$autor$</span>$endif$
+      </li>
     $endfor$
     </ul>
   </section>

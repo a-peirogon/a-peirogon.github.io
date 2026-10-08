@@ -22,11 +22,9 @@ $endif$
 $body$
 
 <script>
-if (document.querySelector("table")) {
+if (document.querySelector("#markdownBody table")) {
     var js = document.createElement("script");
-    js.type = "text/javascript";
-    // Corregida la ruta: site.hs sirve js/* en /js/, no en /assets/js/
-    js.src = "https://mynd.neocities.org/js/tablesorter.js";
+    js.src = "/js/tablesorter.js";
     document.body.appendChild(js);
 }
 </script>
