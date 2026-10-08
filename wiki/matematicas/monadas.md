@@ -9,7 +9,7 @@ comunidad de teoría de lenguajes de programación por su capacidad de
 codificar computación con estado en lenguajes puramente funcionales como
 Haskell.
 
-Notoriamente, una *mónada* sobre una categoría $C$ es un [monoide](/matematicas/categorias_monoidales.html) en la
+Notoriamente, una *mónada* sobre una categoría $C$ es un [monoide](/wiki/matematicas/categorias_monoidales.html) en la
 categoría monoidal de endofuntores de $C$ — una buena forma de recordar
 la definición, aunque suene circular al principio.
 

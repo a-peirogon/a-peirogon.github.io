@@ -33,5 +33,5 @@ también una figura influyente:
 - Suppe, 2000: *Understanding scientific theories: An assessment of
   developments* ([doi](https://doi.org/10.1086/392812))
 
-Ver también [realismo estructural](/filosofia/realismo_estructural.html): buena parte de esa discusión presupone
+Ver también [realismo estructural](/wiki/filosofia/realismo_estructural.html): buena parte de esa discusión presupone
 alguna postura, aunque sea implícita, sobre qué es un modelo científico.

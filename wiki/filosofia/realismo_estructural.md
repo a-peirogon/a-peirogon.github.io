@@ -33,5 +33,5 @@ Sobre todo con la equivalencia de teorías en lógica categórica.
   realism* ([doi](https://doi.org/10.1007/s11229-011-9896-6), [pdf](https://faculty.poly.edu/~jbain/papers/CatTheoROSR.pdf))
 - Eva, 2016: *Category theory and physical structuralism* ([doi](https://doi.org/10.1007/s13194-015-0129-6))
 - Halvorson & Tsementzis, 2016: *Categories of scientific theories* ([pdf](https://philsci-archive.pitt.edu/id/eprint/11923))
-    * Ver también [modelos científicos](/filosofia/modelos_cientificos.html) para el trasfondo sobre qué se entiende
+    * Ver también [modelos científicos](/wiki/filosofia/modelos_cientificos.html) para el trasfondo sobre qué se entiende
       por "teoría" en este contexto

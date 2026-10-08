@@ -57,7 +57,7 @@ gracias a sus lenguajes gráficos.
   categories* ([pdf](https://www.tac.mta.ca/tac/volumes/37/25/37-25abs.html), [arxiv](https://arxiv.org/abs/1911.00818))
 
 Para categorías monoidales cartesianas, ver teorías algebraicas; para
-categorías cartesianas cerradas, ver [mónadas](/matematicas/monadas.html) y su relación con el
+categorías cartesianas cerradas, ver [mónadas](/wiki/matematicas/monadas.html) y su relación con el
 cálculo lambda.
 
 ## Teoremas de completitud
