@@ -1,0 +1,13 @@
+# Hakyll
+_site/
+_cache/
+
+# Haskell build output
+.stack-work/
+dist-newstyle/
+*.hi
+*.o
+/site
+
+# TikZ intermediates (the final SVGs in generated/tikz/ are committed)
+generated/tikz/temp/
