@@ -2,7 +2,7 @@
 import Hakyll
 import Text.Pandoc.Options
 import Text.Pandoc.Definition
-import Text.Pandoc (Pandoc(..), Block(..), Inline(..), Format(..), readMarkdown, runIOorExplode, writeHtml5String)
+import Text.Pandoc (readMarkdown, runIOorExplode, writeHtml5String)
 import Text.Pandoc.Walk (walk, walkM)
 import Text.Pandoc.Templates (compileTemplate)
 import qualified Data.Text as T
@@ -11,12 +11,14 @@ import Data.List (sortOn, groupBy)
 import Data.Ord (Down (..))
 import Data.Function (on)
 import Control.Applicative ((<|>))
+import Control.Monad (filterM)
 import Data.Char (isUpper, isAlpha)
 import System.Process (readProcess, readProcessWithExitCode)
 import System.Exit (ExitCode(..))
 import Control.Exception (try, SomeException)
 import System.FilePath ((</>), takeBaseName, makeRelative, takeExtension, replaceExtension, takeDirectory, splitDirectories)
-import System.Directory (createDirectoryIfMissing, doesDirectoryExist, listDirectory)
+import System.Directory (copyFile, createDirectoryIfMissing, doesDirectoryExist, doesFileExist, listDirectory)
+import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding, setForeignEncoding, utf8)
 import Crypto.Hash.SHA256 (hash)
 import qualified Data.ByteString.Base16 as B16
 import qualified Data.ByteString.Char8 as BS
@@ -25,11 +27,19 @@ import Wiki
 
 main :: IO ()
 main = do
-    wikiFiles <- findMarkdownFilesRecursive "wiki"
-    rawItems  <- mapM loadRawWikiItem wikiFiles
-    let wikiTree = buildWikiTree rawItems
+    -- Forzar UTF-8 aunque el locale del sistema no lo sea (p. ej. Debian mínimo o CI)
+    setLocaleEncoding utf8
+    setFileSystemEncoding utf8
+    setForeignEncoding utf8
 
     hakyll $ do
+        -- El árbol de la wiki se reconstruye en cada pasada de reglas (también
+        -- en `site watch`), y las páginas que lo usan dependen de todos los
+        -- .md de la wiki: si se agrega, borra o renombra una entrada, las
+        -- listas de categorías y de áreas se regeneran solas.
+        wikiTree <- preprocess loadWikiTree
+        wikiDeps <- makePatternDependency "wiki/**.md"
+
         match ("css/*" .||. "js/*" .||. "img/**" .||. "fonts/**" .||. "favicon.ico" .||. "generated/**") $ do
             route   idRoute
             compile copyFileCompiler
@@ -39,20 +49,19 @@ main = do
         match "posts/*.md" $ do
             route $ setExtension "html"
             compile $ do
-                tocCtx <- getTocCtx postCtx
-                sidebarCtx <- globalSidebarContext wikiTree
+                toc <- getTocHtml
                 customPandocCompiler
                     >>= saveSnapshot "content"
-                    >>= loadAndApplyTemplate "templates/post.html"    tocCtx
-                    >>= loadAndApplyTemplate "templates/default.html" (sidebarCtx <> tocCtx)
+                    >>= return . fmap (insertToc toc)
+                    >>= loadAndApplyTemplate "templates/post.html"    postCtx
+                    >>= loadAndApplyTemplate "templates/default.html" postCtx
                     >>= relativizeUrls
 
-        match "wiki/**/*.md" $ do
+        rulesExtraDependencies [wikiDeps] $ match "wiki/**/*.md" $ do
             route $ customRoute wikiConceptRoute
             compile $ do
                 ident <- getUnderlying
                 let path = toFilePath ident
-                sidebarCtx <- globalSidebarContext wikiTree
                 if isIndexPath path
                     then do
                         let catPath = drop 1 (splitDirectories (takeDirectory path))
@@ -63,7 +72,7 @@ main = do
                             catCtx2 = catCtx <> constField "bodyclass" "wikiConcept" <> defaultContext
                         customPandocCompiler
                             >>= loadAndApplyTemplate "templates/wiki-category.html" catCtx2
-                            >>= loadAndApplyTemplate "templates/default.html"       (sidebarCtx <> catCtx2)
+                            >>= loadAndApplyTemplate "templates/default.html"       catCtx2
                             >>= relativizeUrls
                     else do
                         let catPath  = drop 1 (splitDirectories (takeDirectory path))
@@ -77,13 +86,12 @@ main = do
                             conceptCtx = metaCtx <> wikiConceptCtx wikiTree
                         customPandocCompiler
                             >>= loadAndApplyTemplate "templates/wiki-concept.html" conceptCtx
-                            >>= loadAndApplyTemplate "templates/default.html"      (sidebarCtx <> conceptCtx)
+                            >>= loadAndApplyTemplate "templates/default.html"      conceptCtx
                             >>= relativizeUrls
 
-        create ["wiki/index.html"] $ do
+        rulesExtraDependencies [wikiDeps] $ create ["wiki/index.html"] $ do
             route idRoute
             compile $ do
-                sidebarCtx <- globalSidebarContext wikiTree
                 welcomeCtx <- case findNodeByPath ["_index.md"] wikiTree >>= wnIndexItem of
                     Just item -> unsafeCompiler $ do
                         Pandoc _ blocks <- runIOorExplode (readMarkdown readerOptions (T.pack (itemBody item)))
@@ -99,18 +107,16 @@ main = do
                         defaultContext
                 makeItem ""
                     >>= loadAndApplyTemplate "templates/wiki-index.html" ctx
-                    >>= loadAndApplyTemplate "templates/default.html"    (sidebarCtx <> ctx)
+                    >>= loadAndApplyTemplate "templates/default.html"    ctx
                     >>= relativizeUrls
 
         match "index.html" $ do
             route idRoute
             compile $ do
                 posts <- fmap (take 10) $ recentFirst =<< loadAll "posts/*.md"
-                sidebarCtx <- globalSidebarContext wikiTree
                 let indexCtx =
                         listField "posts" postCtx (return posts) <>
                         constField "bodyclass" "siteIndex"       <>
-                        sidebarCtx                                <>
                         defaultContext
                 getResourceBody
                     >>= applyAsTemplate indexCtx
@@ -120,23 +126,17 @@ main = do
         match "pages/about.md" $ do
             route $ customRoute (const "about.html")
             compile $ do
-                sidebarCtx <- globalSidebarContext wikiTree
                 customPandocCompiler
-                    >>= loadAndApplyTemplate "templates/default.html" (sidebarCtx <> defaultContext)
+                    >>= loadAndApplyTemplate "templates/default.html" defaultContext
                     >>= relativizeUrls
 
-        match "books/*.md" $ do
-            route $ setExtension "html"
-            compile $ do
-                bookMetaCtx <- bookMetaTableContext
-                sidebarCtx <- globalSidebarContext wikiTree
-                let bookCtx = bookMetaCtx <> constField "bodyclass" "wikiConcept" <> defaultContext
-                customPandocCompiler
-                    >>= loadAndApplyTemplate "templates/wiki-concept.html" bookCtx
-                    >>= loadAndApplyTemplate "templates/default.html" (sidebarCtx <> bookCtx)
-                    >>= relativizeUrls
+        -- Los libros son solo datos (title, autor y opcionalmente fecha_lectura
+        -- y portada): no generan página propia, solo alimentan la galería.
+        match "books/*.md" $ compile getResourceBody
 
-        create ["books.html"] $ do
+        -- Bookshelf se regenera también cuando se agrega o cambia una portada.
+        coverDeps <- makePatternDependency "img/libros/*"
+        rulesExtraDependencies [coverDeps] $ create ["books.html"] $ do
             route idRoute
             compile $ do
                 books <- loadAll "books/*.md" :: Compiler [Item String]
@@ -145,23 +145,21 @@ main = do
                         return (fromMaybe "" yr, b)
                     ) books
                 let grouped = groupByYear booksWithYear
-                sidebarCtx <- globalSidebarContext wikiTree
                 let yearsCtx = listField "years" yearContext (mapM makeItem grouped)
                     booksCtx =
                         yearsCtx <>
-                        constField "title" "Lecturas" <>
+                        constField "title" "Books" <>
                         defaultContext
                 makeItem ""
                     >>= loadAndApplyTemplate "templates/books-index.html" booksCtx
-                    >>= loadAndApplyTemplate "templates/default.html" (sidebarCtx <> booksCtx)
+                    >>= loadAndApplyTemplate "templates/default.html" booksCtx
                     >>= relativizeUrls
 
         match "pages/research.md" $ do
             route $ customRoute (const "research.html")
             compile $ do
-                sidebarCtx <- globalSidebarContext wikiTree
                 customPandocCompiler
-                    >>= loadAndApplyTemplate "templates/default.html" (sidebarCtx <> defaultContext)
+                    >>= loadAndApplyTemplate "templates/default.html" defaultContext
                     >>= relativizeUrls
 
         create ["feed.xml"] $ do
@@ -186,21 +184,23 @@ findMarkdownFilesRecursive dir = do
                 then findMarkdownFilesRecursive p
                 else return [p | takeExtension p == ".md"]
 
+loadWikiTree :: IO [WikiNode]
+loadWikiTree = do
+    files <- findMarkdownFilesRecursive "wiki"
+    buildWikiTree <$> mapM loadRawWikiItem files
+
 loadRawWikiItem :: FilePath -> IO RawWikiItem
 loadRawWikiItem fp = do
     contents <- readFile fp
-    date     <- gitModTime fp
+    length contents `seq` return ()   -- leer completo y cerrar el archivo
     let relPath = makeRelative "wiki" fp
         meta    = extractFrontmatter contents
         title   = lookup "title" meta
-        icon    = lookup "icon" meta
         ident   = fromFilePath fp
     return RawWikiItem
         { rwPath  = relPath
         , rwTitle = title
-        , rwIcon  = icon
         , rwMeta  = meta
-        , rwDate  = date
         , rwItem  = Item ident contents
         }
 
@@ -212,9 +212,9 @@ extractFrontmatter contents =
     where
         go [] = []
         go (l:ls) = case break (== ':') l of
-            (key, ':':val) | not (null (trim key)) -> (trim key, trim val) : go ls
+            (key, ':':val) | not (null (strip key)) -> (strip key, strip val) : go ls
             _                                        -> go ls
-        trim = f . f where f = reverse . dropWhile (== ' ')
+        strip = f . f where f = reverse . dropWhile (== ' ')
 
 isIndexPath :: FilePath -> Bool
 isIndexPath p = takeBaseName p == "_index"
@@ -239,11 +239,11 @@ wikiConceptCtx _wikiTree =
 
 feedConfig :: FeedConfiguration
 feedConfig = FeedConfiguration
-    { feedTitle       = "Mi Sitio - Feed"
-    , feedDescription = "Últimas publicaciones"
-    , feedAuthorName  = "Tu Nombre"
-    , feedAuthorEmail = "tu@email.com"
-    , feedRoot        = "https://tu-sitio.com"
+    { feedTitle       = "a-peirogon"
+    , feedDescription = "Ensayos de a-peirogon"
+    , feedAuthorName  = "a-peirogon"
+    , feedAuthorEmail = ""
+    , feedRoot        = "https://a-peirogon.github.io"
     }
 
 customPandocCompiler :: Compiler (Item String)
@@ -315,28 +315,28 @@ cajaTransform = walkM mapBlock
     mapBlock :: Block -> IO Block
     mapBlock (CodeBlock (_, classes, keyvals) content)
         | "caja" `elem` classes = do
+            -- El atributo `color` se acepta pero se ignora: todas las cajas
+            -- usan la misma paleta neutra del sitio.
+            -- Las cajas son plegables ("Click to expand") salvo `plegable="no"`.
             let titulo = fromMaybe "" (lookup "título" keyvals <|> lookup "titulo" keyvals)
-                colorKey = maybe "dorado" T.unpack (lookup "color" keyvals)
-                color = cajaColor colorKey
+                plegable = lookup "plegable" keyvals /= Just "no"
             Pandoc _ innerBlocks <- runIOorExplode (readMarkdown readerOptions content)
             innerHtmlItem <- runIOorExplode (writeHtml5String writerOptions (Pandoc mempty innerBlocks))
             let innerHtml = T.unpack innerHtmlItem
                 tituloHtml = if T.null titulo
                               then ""
                               else "<div class=\"portal-box-title\">" ++ T.unpack titulo ++ "</div>"
-                html = "<div class=\"portal-box\" style=\"--portal-box-color:" ++ color ++ ";\">"
+                toggleHtml =
+                    "<button type=\"button\" class=\"portal-box-toggle\" aria-expanded=\"true\">"
+                    ++ "<span class=\"part bottom\"><span class=\"label\">Click to expand</span>"
+                    ++ "<span class=\"icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\"><path d=\"M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z\"></path></svg></span></span></button>"
+                html = "<div class=\"portal-box" ++ (if plegable then " portal-box-collapsible" else "") ++ "\">"
                     ++ tituloHtml
                     ++ "<div class=\"portal-box-body\">" ++ innerHtml ++ "</div>"
+                    ++ (if plegable then toggleHtml else "")
                     ++ "</div>"
             return $ RawBlock (Format "html") (T.pack html)
     mapBlock x = return x
-
-cajaColor :: String -> String
-cajaColor "dorado" = "#c8b88a"
-cajaColor "azul"   = "#8aaccc"
-cajaColor "verde"  = "#8ac8a0"
-cajaColor "rojo"   = "#c88a8a"
-cajaColor _        = "#c8b88a"
 
 wrapWelcomeImage :: Block -> Block
 wrapWelcomeImage b
@@ -361,11 +361,31 @@ tikzTransform = walkM mapBlock
                 height = lookup "height" keyvals
                 caption = lookup "caption" keyvals
             createDirectoryIfMissing True "generated/tikz"
-            svgContent <- compileTikz (T.unpack content) svgPath
+            -- Si el SVG ya existe (está versionado), no recompilar: así el CI
+            -- no necesita LaTeX para diagramas que no han cambiado.
+            svgExists <- doesFileExist svgPath
+            svgContent <- if svgExists
+                then return (Just "cached")
+                else compileTikz (T.unpack content) svgPath
+            -- Copiar también al sitio generado: Hakyll arma la lista de archivos
+            -- a copiar antes de que este SVG exista, así que en el primer build
+            -- (o en `watch`) no llegaría a _site por sí solo.
             case svgContent of
                 Just _ -> do
-                    let imgTag = "<img src=\"" ++ svgUrl ++ "\""
-                               ++ maybe "" (\w -> " width=\"" ++ T.unpack w ++ "\"") width
+                    let dest = destinationDirectory defaultConfiguration </> svgPath
+                    createDirectoryIfMissing True (takeDirectory dest)
+                    copyFile svgPath dest
+                Nothing -> return ()
+            case svgContent of
+                Just _ -> do
+                    -- Sin width/height explícitos, se muestra a 1,6 veces su
+                    -- tamaño natural: pdf2svg lo da en puntos y queda pequeño.
+                    natural <- svgNaturalWidth svgPath
+                    let autoWidth = case (width, height, natural) of
+                            (Nothing, Nothing, Just w) -> Just (T.pack (show (round (w * 1.6) :: Int)))
+                            _                          -> width
+                        imgTag = "<img src=\"" ++ svgUrl ++ "\""
+                               ++ maybe "" (\w -> " width=\"" ++ T.unpack w ++ "\"") autoWidth
                                ++ maybe "" (\h -> " height=\"" ++ T.unpack h ++ "\"") height
                                ++ " alt=\"TikZ diagram\" class=\"tikz-image\">"
                         figureHtml = case caption of
@@ -377,6 +397,20 @@ tikzTransform = walkM mapBlock
                     putStrLn $ "WARNING: Could not compile TikZ diagram " ++ contentHash
                     return $ CodeBlock ("", ["tikzpicture-error"], keyvals) content
     mapBlock x = return x
+
+-- | Ancho natural de un SVG (atributo width de la etiqueta <svg>), si se puede leer.
+svgNaturalWidth :: FilePath -> IO (Maybe Double)
+svgNaturalWidth path = do
+    r <- try (readFile path) :: IO (Either SomeException String)
+    return $ case r of
+        Left _ -> Nothing
+        Right contents ->
+            let (_, rest) = T.breakOn "<svg" (T.pack (take 2000 contents))
+                (_, w)    = T.breakOn "width=\"" rest
+                digits    = T.takeWhile (\c -> c `elem` ("0123456789." :: String)) (T.drop 7 w)
+            in case reads (T.unpack digits) of
+                [(v, "")] -> Just v
+                _         -> Nothing
 
 compileTikz :: String -> FilePath -> IO (Maybe String)
 compileTikz code outputPath = do
@@ -419,21 +453,24 @@ compileTikz code outputPath = do
             putStrLn $ "System Error (Missing pdflatex/pdf2svg?): " ++ show ex
             return Nothing
 
-getTocCtx :: Context a -> Compiler (Context a)
-getTocCtx ctx = do
+-- | Tabla de contenidos del documento actual, como HTML listo para insertar.
+--   Vacía si el documento tiene `no-toc: true` o menos de dos encabezados.
+getTocHtml :: Compiler String
+getTocHtml = do
     underlying <- getUnderlying
     noTocMeta <- getMetadataField underlying "no-toc"
-    let noToc = noTocMeta == Just "true"
-    if noToc
-        then return $ ctx <> boolField "no-toc" (const True)
+    if noTocMeta == Just "true"
+        then return ""
         else do
             writerOpts <- mkTocWriter writerOptions underlying
             toc <- renderPandocWith readerOptions writerOpts =<< getResourceBody
             let tocBody = killLinkIds (itemBody toc)
-                finalToc = if null (trim tocBody)
-                          then ""
-                          else "<div id=\"TOC\" class=\"TOC\">" ++ tocBody ++ "</div>"
-            return $ ctx <> constField "toc" finalToc
+                entries = length (T.breakOnAll "<li" (T.pack tocBody))
+            return $ if entries < 2
+                then ""
+                else "<nav id=\"TOC\" class=\"TOC\" aria-label=\"Contenido\">"
+                     ++ "<div class=\"TOC-title\">Contenido</div>"
+                     ++ tocBody ++ "</nav>"
   where
     mkTocWriter :: WriterOptions -> Identifier -> Compiler WriterOptions
     mkTocWriter opts ident = do
@@ -449,11 +486,21 @@ getTocCtx ctx = do
     readMaybe s = case reads s of
         [(val, "")] -> Just val
         _           -> Nothing
-    trim = T.unpack . T.strip . T.pack
     killLinkIds = asTxt (T.concat . go . T.splitOn "id=\"toc-")
       where
         go [] = []
         go (x:xs) = x : map (T.drop 1 . T.dropWhile (/= '\"')) xs
+
+-- | Inserta la tabla de contenidos justo después del primer <h2> del cuerpo
+--   (o al principio, si no hay ninguno), para que flote junto al primer párrafo.
+insertToc :: String -> String -> String
+insertToc "" html = html
+insertToc toc html =
+    let txt = T.pack html
+        (before, after) = T.breakOn "</h2>" txt
+    in if T.null after
+        then toc ++ html
+        else T.unpack (before <> "</h2>" <> T.pack toc <> T.drop 5 after)
 
 asTxt :: (T.Text -> T.Text) -> String -> String
 asTxt f = T.unpack . f . T.pack
@@ -467,73 +514,75 @@ groupByYear books =
 
 yearContext :: Context (String, [Item String])
 yearContext =
-    field "year" (return . fst . itemBody) <>
+    field "year" (\i -> let y = fst (itemBody i)
+                        in if null y then noResult "sin año" else return y) <>
     Context (\k _ item -> case k of
         "posts" -> unContext
-                     (listField "posts" defaultContext (return (snd (itemBody item))))
+                     (listField "posts" bookCardCtx (return (snd (itemBody item))))
                      "posts" [] item
         _       -> unContext missingField k [] item)
 
-bookMetaTableContext :: Compiler (Context String)
-bookMetaTableContext = do
-    ident <- getUnderlying
-    autor <- getMetadataField ident "autor"
-    anio  <- getMetadataField ident "año"
-    url   <- getMetadataField ident "url"
-    let rows = [ ("Autor", v) | Just v <- [autor] ]
-            ++ [ ("Año", v)   | Just v <- [anio] ]
-            ++ [ ("Url", v)   | Just v <- [url] ]
-        renderRow (label, value) =
-            "<tr><td class=\"meta-label\">" ++ label ++ "</td><td class=\"meta-value\">"
-            ++ renderValue label value ++ "</td></tr>"
-        renderValue "Url" value =
-            "<a href=\"" ++ value ++ "\" target=\"_blank\" rel=\"noopener\">" ++ value ++ "</a>"
-        renderValue _ value = value
-        tableHtml =
-            "<table class=\"meta-table\"><tbody>"
-            ++ concatMap renderRow rows
-            ++ "</tbody></table>"
-    return $ if null rows
-        then boolField "has_meta_table" (const False)
-        else constField "meta_table" tableHtml <> boolField "has_meta_table" (const True)
+-- | Contexto de cada libro en la galería de Bookshelf.
+--   `portada`: el campo del frontmatter si existe; si no, la primera imagen
+--   img/libros/<nombre-del-archivo>.{jpg,jpeg,png,webp} que exista.
+--   Si no hay ninguna, el campo queda sin definir y la plantilla dibuja
+--   una portada tipográfica.
+bookCardCtx :: Context String
+bookCardCtx = field "portada" cover <> defaultContext
+  where
+    cover item = do
+        let ident = itemIdentifier item
+        explicit <- getMetadataField ident "portada"
+        case explicit of
+            Just p  -> return p
+            Nothing -> do
+                let slug = takeBaseName (toFilePath ident)
+                    candidates = [ "img/libros/" ++ slug ++ "." ++ ext
+                                 | ext <- ["jpg", "jpeg", "png", "webp"] ]
+                found <- unsafeCompiler (filterM doesFileExist candidates)
+                case found of
+                    (p:_) -> return ("/" ++ p)
+                    []    -> noResult "sin portada"
 
 wrapFootnotesInDetails :: String -> String
 wrapFootnotesInDetails html =
-    case breakOnSubstring marker html of
-        Nothing -> html
-        Just (before, atMarker) ->
-            case findMatchingClose atMarker of
-                Nothing -> html
-                Just (section, after) ->
-                    before ++ "<details class=\"footnotes-details\"><summary>Notas al pie</summary>" ++ section ++ "</details>" ++ after
+    case firstJust [ wrapWith tag | tag <- ["aside", "section"] ] of
+        Just wrapped -> T.unpack wrapped
+        Nothing      -> html
   where
-    marker = "<section id=\"footnotes\""
+    txt = T.pack html
 
-    breakOnSubstring :: String -> String -> Maybe (String, String)
-    breakOnSubstring needle haystack = go "" haystack
+    firstJust xs = case [ x | Just x <- xs ] of
+        (x:_) -> Just x
+        []    -> Nothing
+
+    -- Pandoc 3 emite <aside id="footnotes">; versiones anteriores, <section id="footnotes">.
+    wrapWith :: T.Text -> Maybe T.Text
+    wrapWith tag = do
+        let openTag  = "<" <> tag
+            closeTag = "</" <> tag <> ">"
+            marker   = openTag <> " id=\"footnotes\""
+            (before, atMarker) = T.breakOn marker txt
+        if T.null atMarker then Nothing else do
+            (block, after) <- matchClose openTag closeTag atMarker
+            return $ before
+                  <> "<details class=\"footnotes-details\" open><summary>Notas al pie</summary>"
+                  <> block <> "</details>" <> after
+
+    -- Devuelve el bloque completo (desde la etiqueta de apertura hasta su cierre
+    -- correspondiente, respetando anidamiento) y el resto del documento.
+    matchClose :: T.Text -> T.Text -> T.Text -> Maybe (T.Text, T.Text)
+    matchClose openTag closeTag = go 0 ""
       where
-        go acc rest
-            | needle `isPrefixOfStr` rest = Just (reverse acc, rest)
-            | null rest = Nothing
-            | otherwise = go (head rest : acc) (tail rest)
-
-    isPrefixOfStr [] _ = True
-    isPrefixOfStr _ [] = False
-    isPrefixOfStr (x:xs) (y:ys) = x == y && isPrefixOfStr xs ys
-
-    findMatchingClose :: String -> Maybe (String, String)
-    findMatchingClose s = go s 0 ""
-      where
-        openTag = "<section"
-        closeTag = "</section>"
-        go rest depth acc
-            | openTag `isPrefixOfStr` rest =
-                let (tag, rest') = splitAt (length openTag) rest
-                in go rest' (depth + 1) (acc ++ tag)
-            | closeTag `isPrefixOfStr` rest =
-                let (tag, rest') = splitAt (length closeTag) rest
-                in if depth == 1
-                   then Just (acc ++ tag, rest')
-                   else go rest' (depth - 1) (acc ++ tag)
-            | null rest = Nothing
-            | otherwise = go (tail rest) depth (acc ++ [head rest])
+        go :: Int -> T.Text -> T.Text -> Maybe (T.Text, T.Text)
+        go depth acc rest
+            | T.null rest = Nothing
+            | openTag `T.isPrefixOf` rest =
+                let (t, r) = T.splitAt (T.length openTag) rest
+                in go (depth + 1) (acc <> t) r
+            | closeTag `T.isPrefixOf` rest =
+                let (t, r) = T.splitAt (T.length closeTag) rest
+                in if depth == 1 then Just (acc <> t, r) else go (depth - 1) (acc <> t) r
+            | otherwise =
+                let (chunk, r) = T.break (== '<') (T.drop 1 rest)
+                in go depth (acc <> T.take 1 rest <> chunk) r
