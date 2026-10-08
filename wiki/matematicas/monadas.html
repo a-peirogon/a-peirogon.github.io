@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mónadas · a-peirogon</title>
+  <meta name="description" content="a-peirogon: mathematics, linguistics, philosophy, computer science">
+  
+  
+
+  <link rel="alternate" type="application/atom+xml" title="a-peirogon" href="../../feed.xml">
+
+  <link rel="stylesheet" href="../../css/main.css?v=10">
+  <link rel="stylesheet" href="../../css/wiki.css?v=10">
+
+  <link rel="preload" href="../../fonts/crimson-roman-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-italic-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-semibold-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-bold-webfont.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: true},
+                {left: ", right: ", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+    });
+  </script>
+
+  <script src="../../js/instantpage-5.1.0.js" type="module"></script>
+</head>
+
+<body class="wikiConcept">
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="../../" id="logo" aria-label="Home">
+          <img src="../../img/logo.png" alt="Home" width="85" height="85" style="filter:invert(1);">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="../../wiki/index.html">Wiki</a>
+          <a class="site" href="../../books.html">Books</a>
+          <a class="site" href="../../about.html">About</a>
+        </nav>
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        
+          
+          
+        
+
+        
+
+        <section id="markdownBody">
+          
+<header class="page-header">
+  <h1>Mónadas</h1>
+</header>
+
+
+
+
+<p>Las <a href="https://ncatlab.org/nlab/show/monad">mónadas</a> codifican representaciones sintácticas de estructura
+algebraica. Además, han alcanzado un estatus casi de culto en parte de la
+comunidad de teoría de lenguajes de programación por su capacidad de
+codificar computación con estado en lenguajes puramente funcionales como
+Haskell.</p>
+<p>Notoriamente, una <em>mónada</em> sobre una categoría <span class="math inline">\(C\)</span> es un <a href="../../wiki/matematicas/categorias_monoidales.html">monoide</a> en la
+categoría monoidal de endofuntores de <span class="math inline">\(C\)</span> — una buena forma de recordar
+la definición, aunque suene circular al principio.</p>
+<section id="teoría-general" class="level2">
+<h2>Teoría general</h2>
+<p>Las mónadas aparecen en la mayoría de los libros de texto de teoría de
+categorías:</p>
+<ul>
+<li>Borceux, 1994: <em>Handbook of Categorical Algebra</em>, Vol. 2, Cap. 4:
+Monads</li>
+<li>Awodey, 2010: <em>Category Theory</em>, 2ª ed., Cap. 10: Monads and algebras</li>
+<li>Riehl, 2016: <em>Category Theory in Context</em>, Cap. 5: Monads and their
+algebras
+<ul>
+<li>Lista particularmente útil de ejemplos de matemáticas y ciencias de
+la computación</li>
+</ul></li>
+<li>Jacobs, 2017: <em>Introduction to Coalgebra</em>, Cap. 5: Monads, comonads,
+and distributive laws (<a href="https://doi.org/10.1017/CBO9781316823187.006">doi</a>)</li>
+</ul>
+</section>
+<section id="álgebra-universal" class="level2">
+<h2>Álgebra universal</h2>
+<p>Buena parte del interés matemático en las mónadas viene de su conexión con
+el <a href="https://ncatlab.org/nlab/show/universal+algebra">álgebra universal</a>.</p>
+<ul>
+<li>Baez, 2006, notas de curso: <em>Universal algebra and diagrammatic
+reasoning</em> (<a href="https://math.ucr.edu/home/baez/universal/universal_hyper.pdf">slides</a>)
+<ul>
+<li>Enlaces a más material en el sitio complementario</li>
+</ul></li>
+<li>Voutas, 2012, notas expositivas: <em>The basic theory of monads and their
+connection to universal algebra</em> (<a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.261.1433&amp;rep=rep1&amp;type=pdf">pdf</a>)</li>
+</ul>
+<p>En particular, las teorías de Lawvere y las mónadas finitarias son
+equivalentes — un resultado que suele atribuirse a Linton.</p>
+<ul>
+<li>Hyland &amp; Power, 2007: <em>The category theoretic understanding of
+universal algebra: Lawvere theories and monads</em> (<a href="https://doi.org/10.1016/j.entcs.2007.02.019">doi</a>)
+<ul>
+<li>Contrasta las dos formulaciones categóricas de álgebra universal:
+teorías de Lawvere versus mónadas</li>
+<li>Behrisch, Kerkhoff, Power, 2012, ampliación con comonads y teorías
+duales (<a href="https://doi.org/10.1016/j.entcs.2012.08.002">doi</a>)</li>
+</ul></li>
+<li>Garner, 2014: <em>Lawvere theories, finitary monads and Cauchy-completion</em> (<a href="https://doi.org/10.1016/j.jpaa.2014.02.018">doi</a>, <a href="https://arxiv.org/abs/1307.2963">arxiv</a>)
+<ul>
+<li>Analiza la correspondencia mónada-teoría desde categorías enriquecidas
+en endofuntores finitarios</li>
+</ul></li>
+<li>Brandenburg, 2021: <em>Large limit sketches and topological space objects</em> (<a href="https://arxiv.org/abs/2106.11115">arxiv</a>)
+<ul>
+<li>El apéndice A trae una prueba autocontenida y accesible de la
+equivalencia entre teorías de Lawvere infinitarias y mónadas</li>
+<li>También sirve como buen resumen de la literatura sobre el tema</li>
+</ul></li>
+</ul>
+</section>
+<section id="mónadas-especiales-y-aplicaciones" class="level2">
+<h2>Mónadas especiales y aplicaciones</h2>
+<p><strong>Mónadas de probabilidad</strong>: para la mónada de Giry y otras mónadas de
+probabilidad, ver probabilidad categórica.</p>
+</section>
+
+        </section>
+
+      </article>
+
+      <footer id="site-footer">
+          <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+            <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+              <img class="fleuron-block" src="../../img/fleuron.svg" alt="End of post fleuron" style="filter: invert(1);">
+            </span>
+          </div>
+        <nav>
+          <a href="../../feed.xml" aria-label="RSS Feed">RSS</a>
+          <span class="separator">|</span>
+          <span>Website source: <a href="https://github.com/a-peirogon/a-peirogon.github.io" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </nav>
+                <p style="margin-top:0;text-align:right">Everything on this website—<a style="color:#999" href="https://en.wikipedia.org/wiki/Dash#Em_dash">em dash</a> and all—was created by a human</p>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="../../js/scale.fix.js"></script>
+  <script src="../../js/sidenotes.js"></script>
+  <script src="../../js/footnotes.js"></script>
+  <script src="../../js/fix-footnotes.js"></script>
+  <script src="../../js/wikipedia-popups.js"></script>
+  <script src="../../js/portal-box.js"></script>
+</body>
+
+</html>

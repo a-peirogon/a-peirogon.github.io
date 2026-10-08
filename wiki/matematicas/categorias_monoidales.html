@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Categorías monoidales · a-peirogon</title>
+  <meta name="description" content="a-peirogon: mathematics, linguistics, philosophy, computer science">
+  
+  
+
+  <link rel="alternate" type="application/atom+xml" title="a-peirogon" href="../../feed.xml">
+
+  <link rel="stylesheet" href="../../css/main.css?v=10">
+  <link rel="stylesheet" href="../../css/wiki.css?v=10">
+
+  <link rel="preload" href="../../fonts/crimson-roman-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-italic-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-semibold-webfont.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../fonts/crimson-bold-webfont.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: true},
+                {left: ", right: ", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError: false
+        });
+    });
+  </script>
+
+  <script src="../../js/instantpage-5.1.0.js" type="module"></script>
+</head>
+
+<body class="wikiConcept">
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+
+        <a href="../../" id="logo" aria-label="Home">
+          <img src="../../img/logo.png" alt="Home" width="85" height="85" style="filter:invert(1);">
+        </a>
+
+        <nav id="site-nav">
+          <a class="site" href="../../wiki/index.html">Wiki</a>
+          <a class="site" href="../../books.html">Books</a>
+          <a class="site" href="../../about.html">About</a>
+        </nav>
+
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <article>
+
+        
+          
+          
+        
+
+        
+
+        <section id="markdownBody">
+          
+<header class="page-header">
+  <h1>Categorías monoidales</h1>
+</header>
+
+
+
+
+<p>Las <a href="https://ncatlab.org/nlab/show/monoidal+category">categorías monoidales</a> son categorías cuyos morfismos pueden tener
+múltiples entradas y múltiples salidas. Son un concepto fundamental de la
+teoría de categorías que generaliza a la vez producto y coproducto, y se
+volvieron especialmente populares en la teoría de categorías aplicada
+gracias a sus lenguajes gráficos.</p>
+<section id="panoramas-generales" class="level2">
+<h2>Panoramas generales</h2>
+<ul>
+<li>Baez &amp; Stay, 2010: <em>Physics, topology, logic, and computation: a Rosetta
+stone</em> (<a href="https://doi.org/10.1007/978-3-642-12821-9_2">doi</a>, <a href="https://arxiv.org/abs/0903.0340">arxiv</a>)
+<ul>
+<li>Introducción encantadora a categorías monoidales y diagramas de
+cuerdas</li>
+<li>Describe un lenguaje gráfico especulativo para categorías cerradas
+(no necesariamente compactas)</li>
+<li>Sec. 2.3.3, p. 145: referencias sobre procedimientos de decisión para
+el problema de la palabra en categorías monoidales libres</li>
+</ul></li>
+<li>Coecke &amp; Paquette, 2010: <em>Categories for the practicing physicist</em> (<a href="https://doi.org/10.1007/978-3-642-12821-9_3">doi</a>, <a href="https://arxiv.org/abs/0905.3010">arxiv</a>)
+<ul>
+<li>Otra introducción agradable, a un nivel similar a Baez &amp; Stay</li>
+<li>Cobertura detallada de la categoría de relaciones</li>
+</ul></li>
+<li>Street, 2012: <em>Monoidal categories in, and linking, geometry and
+algebra</em> (<a href="https://doi.org/10.36045/bbms/1354031551">doi</a>, <a href="https://arxiv.org/abs/1201.2991">arxiv</a>)</li>
+<li>Savage, 2019: <em>String diagrams and categorification</em> (<a href="https://arxiv.org/abs/1806.06873">arxiv</a>)
+<ul>
+<li>Sec. 2: introducción corta pero clara a categorías monoidales
+lineales estrictas y diagramas de cuerdas, incluido el argumento de
+Eckmann-Hilton</li>
+<li>Sec. 3: presentación de categorías monoidales por generadores y
+relaciones, sobre todo con ejemplos: álgebras de grupo de los grupos
+simétrico y de trenzas, álgebras de Hecke y de producto wreath</li>
+<li>Sec. 4: categorías monoidales autónomas y pivotales, isotopía de
+diagramas de cuerdas</li>
+<li>Sec. 5: el anillo de Grothendieck y la traza como dos formas de
+decategorificación</li>
+</ul></li>
+</ul>
+</section>
+<section id="lenguajes-gráficos-diagramas-de-cuerdas" class="level2">
+<h2>Lenguajes gráficos: diagramas de cuerdas</h2>
+<ul>
+<li>Selinger, 2010: <em>A survey of graphical languages for monoidal
+categories</em> (<a href="https://doi.org/10.1007/978-3-642-12821-9_4">doi</a>, <a href="https://arxiv.org/abs/0908.3347">arxiv</a>)
+<ul>
+<li>Referencia excelente, más enciclopédica que Baez &amp; Stay — la que
+conviene consultar cuando el anterior se queda corto</li>
+</ul></li>
+<li>Mellies, 2006: <em>Functorial boxes in string diagrams</em> (<a href="https://doi.org/10.1007/11874683_1">doi</a>, <a href="https://hal.archives-ouvertes.fr/hal-00154243/document">pdf</a>)</li>
+<li>Bartlett, 2014: <em>Quasistrict symmetric monoidal 2-categories via wire
+diagrams</em> (<a href="https://arxiv.org/abs/1409.2148">arxiv</a>)
+<ul>
+<li>Agrega 2-morfismos al lenguaje gráfico</li>
+</ul></li>
+<li>Miatto, 2019: <em>Graphical calculus for products and convolutions</em> (<a href="https://arxiv.org/abs/1903.01366">arxiv</a>)
+<ul>
+<li>Diagramas de cuerdas para álgebra de matrices: producto punto,
+tensorial, Kronecker, Hadamard, Kathri-Rao y Tracy-Singh</li>
+</ul></li>
+</ul>
+</section>
+<section id="teorías-de-tipos" class="level2">
+<h2>Teorías de tipos</h2>
+<ul>
+<li>Jay, 1989: <em>Languages for monoidal categories</em> (<a href="https://doi.org/10.1016/0022-4049(89)90163-1">doi</a>, <a href="https://core.ac.uk/download/pdf/82117535.pdf">pdf</a>)</li>
+<li>Shulman, 2021: <em>A practical type theory for symmetric monoidal
+categories</em> (<a href="https://www.tac.mta.ca/tac/volumes/37/25/37-25abs.html">pdf</a>, <a href="https://arxiv.org/abs/1911.00818">arxiv</a>)</li>
+</ul>
+<p>Para categorías monoidales cartesianas, ver teorías algebraicas; para
+categorías cartesianas cerradas, ver <a href="../../wiki/matematicas/monadas.html">mónadas</a> y su relación con el
+cálculo lambda.</p>
+</section>
+<section id="teoremas-de-completitud" class="level2">
+<h2>Teoremas de completitud</h2>
+<p>En el sentido de teoría de modelos.</p>
+<ul>
+<li>Hasegawa, Hofmann, Plotkin, 2008: <em>Finite dimensional vector spaces are
+complete for traced symmetric monoidal categories</em> (<a href="https://doi.org/10.1007/978-3-540-78127-1_20">doi</a>)</li>
+<li>Selinger, 2011: <em>Finite dimensional Hilbert spaces are complete for
+dagger compact closed categories</em> (<a href="https://doi.org/10.1016/j.entcs.2011.01.010">doi</a>, <a href="https://arxiv.org/abs/1207.6972">arxiv</a>)</li>
+<li>Kissinger, 2015: <em>Finite matrices are complete for (dagger-)hypergraph
+categories</em> (<a href="https://arxiv.org/abs/1406.5942">arxiv</a>)
+<ul>
+<li>Las categorías de hipergrafo también se conocen como “spidered /
+dungeon categories”</li>
+</ul></li>
+</ul>
+</section>
+
+        </section>
+
+      </article>
+
+      <footer id="site-footer">
+          <div style="text-align: center; background: linear-gradient(to right, #fff 25%, transparent 25%) repeat-x center; background-size: 5px 1px;">
+            <span style="background-color: var(--GW-body-background-color); padding: 0 0.5em; display: inline-block;">
+              <img class="fleuron-block" src="../../img/fleuron.svg" alt="End of post fleuron" style="filter: invert(1);">
+            </span>
+          </div>
+        <nav>
+          <a href="../../feed.xml" aria-label="RSS Feed">RSS</a>
+          <span class="separator">|</span>
+          <span>Website source: <a href="https://github.com/a-peirogon/a-peirogon.github.io" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </nav>
+                <p style="margin-top:0;text-align:right">Everything on this website—<a style="color:#999" href="https://en.wikipedia.org/wiki/Dash#Em_dash">em dash</a> and all—was created by a human</p>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="../../js/scale.fix.js"></script>
+  <script src="../../js/sidenotes.js"></script>
+  <script src="../../js/footnotes.js"></script>
+  <script src="../../js/fix-footnotes.js"></script>
+  <script src="../../js/wikipedia-popups.js"></script>
+  <script src="../../js/portal-box.js"></script>
+</body>
+
+</html>

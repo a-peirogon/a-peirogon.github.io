@@ -1,0 +1,454 @@
+.wiki-welcome-img-frame {
+  display: inline-block;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  margin: 0 0 2em 0;
+}
+
+.wiki-welcome-img-frame img {
+  display: block;
+  width: 280px;
+  height: auto;
+}
+
+@media (max-width: 400px) {
+  .wiki-welcome-img-frame {
+    max-width: 90vw;
+  }
+  .wiki-welcome-img-frame img {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 65ch) {
+  #sidebar {
+    width: 100px !important;
+  }
+}
+
+body.wikiConcept #markdownBody > p:first-of-type::first-letter {
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+body.wikiConcept #markdownBody li,
+body.wikiConcept #markdownBody p {
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+
+
+.wiki-cat-count {
+  font-size: 0.75em;
+  opacity: 0.6;
+  letter-spacing: 0.04em;
+  margin-top: 0.3em;
+}
+
+.wiki-cat-intro {
+  margin: 1.2em 0;
+}
+
+.wiki-cat-entries-title,
+.wiki-cat-subcats .wiki-cat-entries-title {
+  font-variant: small-caps;
+  font-size: 0.85em;
+  opacity: 0.7;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.wiki-cat-entries-list {
+  list-style: none;
+  margin: 0 0 1.5em 0;
+  padding: 0;
+}
+
+.wiki-cat-entries-list li {
+  margin: 0 0 0.4em 0;
+}
+
+.wiki-cat-entries-list a {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.portal-box {
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  margin: 15px 0 1em;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.9em;
+}
+
+.portal-box-title {
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  color: var(--GW-body-text-color, #e8e8e8);
+  background: var(--GW-blockquote-background-color-level-one, #1a1a1a);
+  border-bottom: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  padding: 5px 12px;
+}
+
+.portal-box-body {
+  padding: 0;
+}
+
+.portal-box-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+#markdownBody .portal-box-body > p {
+  padding: 0.4em 12px 0;
+}
+
+#markdownBody .portal-box-body > p:last-child {
+  padding-bottom: 0.4em;
+}
+
+#markdownBody .portal-box-body ul,
+#markdownBody .portal-box-body ol {
+  margin: 0.45em 0;
+  padding: 0 12px 0 2em;
+}
+
+#markdownBody .portal-box-body li:nth-of-type(n+2) {
+  margin-top: 0.25em;
+}
+
+.portal-box-body a {
+  color: var(--GW-body-link-color, #b8b8b8);
+}
+
+/* "Click to expand" bar (only shown when JavaScript is active). */
+.portal-box-toggle {
+  display: none;
+}
+
+.portal-box.js-collapsible .portal-box-toggle {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 3px 0 4px;
+  border: none;
+  border-top: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  background: transparent;
+  color: var(--GW-collapse-disclosure-button-bottom-part-text-color, #8a8a8a);
+  font: inherit;
+  font-size: 0.8em;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.portal-box.js-collapsible .portal-box-toggle:hover,
+.portal-box.js-collapsible .portal-box-toggle:focus-visible {
+  background: var(--GW-collapse-disclosure-button-hover-color, #252525);
+  color: var(--GW-collapse-disclosure-button-text-hover-color, #d4d4d4);
+  outline: none;
+}
+
+.portal-box-toggle .part {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.portal-box-toggle .icon svg {
+  display: block;
+  width: 0.55em;
+  height: 0.9em;
+  fill: currentColor;
+  transform: rotate(90deg);          /* expanded: chevron pointing up */
+  transition: transform 0.15s ease;
+}
+
+.portal-box.collapsed .portal-box-toggle .icon svg {
+  transform: rotate(-90deg);         /* collapsed: chevron pointing down */
+}
+
+.portal-box.collapsed .portal-box-body {
+  display: none;
+}
+
+.portal-box.collapsed .portal-box-toggle {
+  border-top: none;
+}
+
+.wiki-welcome-desc {
+  max-width: 640px;
+  margin: 0 0 1.8em 0;
+}
+
+.wiki-welcome-desc p {
+  margin: 0 0 0.8em 0;
+}
+
+.wiki-welcome-desc a {
+  color: var(--GW-body-link-color, #b8b8b8);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.meta-table {
+  font-size: inherit;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5em 0;
+}
+
+.meta-table tr {
+  border-bottom: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+}
+
+.meta-table tr:last-child {
+  border-bottom: none;
+}
+
+.meta-table td {
+  padding: 8px 20px 8px 0;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.meta-label {
+  width: 120px;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.85em;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.meta-value {
+  color: inherit;
+}
+
+.meta-value a {
+  color: var(--GW-body-link-color, #b8b8b8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+.meta-value a:hover {
+  opacity: 0.8;
+}
+.sidenote img {
+  max-width: 100%;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.sidenote figcaption {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.footnotes-details {
+  margin-top: 2em;
+}
+
+.footnotes-details summary {
+  cursor: pointer;
+  font-variant: small-caps;
+  font-size: 0.85em;
+  opacity: 0.6;
+  letter-spacing: 0.02em;
+}
+
+.footnotes-details summary:hover {
+  opacity: 0.85;
+}
+
+.footnotes-details[open] summary {
+  margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 130.1ch) {
+  #markdownBody {
+    min-height: 100vh;
+  }
+}
+
+
+.wiki-cat-title {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1;
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.6em;
+  box-shadow: 0 -2px 0 0 var(--GW-H1-box-shadow-background-color) inset,
+  0 -3px 0 0 var(--GW-H1-box-shadow-line-color) inset;
+  font-style: normal;
+}
+
+@media only screen and (min-width: 650px) {
+  .wiki-cat-title {
+    font-size: 2em;
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+    box-shadow: 0 -5px 5px 0 var(--GW-H1-box-shadow-background-color) inset, 0 -6px 0 0 var(--GW-H1-box-shadow-line-color) inset;
+    text-transform: uppercase;
+  }
+}
+
+#popupdiv > div {
+  background-color: var(--GW-body-background-color, #0d0d0d) !important;
+  color: var(--GW-body-text-color, #e8e8e8) !important;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a) !important;
+}
+
+#popupdiv > div a {
+  color: var(--GW-body-link-color, #b8b8b8);
+}
+
+#popupdiv > div::-webkit-scrollbar-thumb {
+  background-color: #4a4a4a;
+  box-shadow: 0 0 0 3px var(--GW-body-background-color, #0d0d0d) inset;
+}
+
+#popupdiv > div::-webkit-scrollbar-thumb:hover {
+  background-color: #6a6a6a;
+}
+
+#markdownBody a:hover,
+.meta-value a:hover {
+  color: var(--GW-body-link-hover-color, #d4d4d4);
+  transition: color 0.15s ease;
+}
+
+.sidenote {
+  transition: box-shadow 0.15s ease;
+}
+
+.sidenote:hover,
+.sidenote:target,
+.sidenote.highlighted {
+  box-shadow: -2px 0 0 0 var(--GW-sidenote-highlight-box-shadow-color, #4a4a4a);
+}
+
+.footnotes-details summary:hover {
+  color: var(--GW-body-link-hover-color, #d4d4d4);
+}
+
+.wiki-cat-count,
+.meta-label {
+  font-family: 'Hopf Mono', monospace;
+  letter-spacing: 0.03em;
+}
+
+.meta-label {
+  font-variant: normal;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+/* ---------- Bookshelf: cover gallery ---------- */
+
+.shelf-year h1 {
+  margin-bottom: 1em;
+}
+
+/* Small covers: ~6 per row on desktop, 3 on mobile. */
+#markdownBody ul.shelf {
+  list-style: none;
+  margin: 0 0 2.5em 0;
+  padding: 0;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: 1.6em 1.1em;
+}
+
+#markdownBody ul.shelf > li.shelf-book {
+  margin: 0;
+  text-align: left;
+  hyphens: none;
+  line-height: 1.2;
+}
+
+#markdownBody ul.shelf > li.shelf-book::before {
+  content: none;
+}
+
+/* Cover: book proportions (2:3); the image is shown inverted, like
+   every image on the site, and its real colors appear on hover. */
+.shelf-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--GW-sidebar-mobile-link-border-color, #4a4a4a);
+  box-shadow: 2px 2px 0 0 #1a1a1a;
+}
+
+#markdownBody img.shelf-cover {
+  filter: invert(1);
+  transition: filter 0.25s ease;
+}
+
+#markdownBody .shelf-book:hover img.shelf-cover {
+  filter: none;
+}
+
+/* Books with no cover image: a typographic cover in the site's own style. */
+.shelf-cover-blank {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.8em 0.5em;
+  background: var(--GW-blockquote-background-color-level-one, #1a1a1a);
+  outline: 1px solid #2a2a2a;
+  outline-offset: -4px;
+  text-align: center;
+}
+
+.shelf-blank-title {
+  font-family: 'et-book', serif;
+  font-variant: small-caps;
+  font-size: 0.85em;
+  line-height: 1.15;
+  margin-top: 0.8em;
+}
+
+.shelf-blank-author {
+  font-size: 0.65em;
+  opacity: 0.7;
+}
+
+.shelf-title {
+  display: block;
+  margin-top: 0.6em;
+  font-size: 0.8em;
+}
+
+.shelf-author {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.7em;
+  font-variant: small-caps;
+  opacity: 0.65;
+}
+
+@media only screen and (max-width: 649px) {
+  #markdownBody ul.shelf {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4em 0.9em;
+  }
+}

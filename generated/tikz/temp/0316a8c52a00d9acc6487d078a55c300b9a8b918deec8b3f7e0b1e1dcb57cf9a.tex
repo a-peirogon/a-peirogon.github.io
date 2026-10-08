@@ -1,0 +1,27 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes}
+\begin{document}
+\begin{tikzpicture}[
+    level distance=1.5cm,
+    level 1/.style={sibling distance=3cm},
+    level 2/.style={sibling distance=1.5cm},
+    every node/.style={circle, draw, minimum size=0.8cm}
+]
+\node {8}
+    child {node {3}
+        child {node {1}}
+        child {node {6}
+            child {node {4}}
+            child {node {7}}
+        }
+    }
+    child {node {10}
+        child[missing]
+        child {node {14}
+            child {node {13}}
+            child[missing]
+        }
+    };
+\end{tikzpicture}
+\end{document}
