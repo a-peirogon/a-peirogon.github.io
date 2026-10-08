@@ -6,7 +6,7 @@
         fnref.classList.add('footnote');
     });
 
-    document.querySelectorAll('section.footnotes li[id^="fn"]').forEach(function(fn, index) {
+    document.querySelectorAll('.footnotes li[id^="fn"]').forEach(function(fn, index) {
         var num = index + 1;
         fn.id = 'fn:' + num;
         var backref = fn.querySelector('a.footnote-back');
