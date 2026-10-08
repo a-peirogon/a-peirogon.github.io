@@ -10,37 +10,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1.
-    - uses: actions/checkout@v3
+    # 1. Historial completo: el sitio usa `git log` para fechar las entradas de la wiki
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-    # 2. Cachear las dependencias de Stack (Ahorra mucho tiempo)
+    # 2. Herramientas externas que usa site.hs:
+    #    pygmentize (resaltado de código), pdflatex + pdf2svg (diagramas TikZ)
+    - name: Install build tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          python3-pygments pdf2svg \
+          texlive-latex-base texlive-latex-extra texlive-pictures
+
+    # 3. Cachear las dependencias de Stack (ahorra mucho tiempo)
     - name: Cache .stack
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.stack
-        key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml.lock') }}
+        key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml', 'a-peirogon.cabal') }}
         restore-keys: |
           ${{ runner.os }}-stack-
 
-    # 3. Instalar GHC y Stack
+    # 4. Instalar GHC y Stack
     - name: Setup Haskell
       uses: haskell-actions/setup@v2
       with:
         enable-stack: true
         stack-no-global: true
 
-    # 4. Compilar el sitio (Esto tarda la primera vez)
+    # 5. Compilar el generador (tarda la primera vez)
     - name: Build site
       run: stack build
 
-    # 5. Generar el HTML (Ejecuta tu site.hs)
+    # 6. Generar el HTML
     - name: Generate site
+      env:
+        LANG: C.UTF-8
+        LC_ALL: C.UTF-8
       run: stack exec site build
 
-    # 6. Publicar a la rama 'gh-pages' automáticamente
+    # 7. Publicar en la rama 'gh-pages'
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
-        force_orphan: true # Mantiene la rama de deploy limpia
+        force_orphan: true
